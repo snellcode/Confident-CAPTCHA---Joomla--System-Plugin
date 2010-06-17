@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install version="1.5" type="plugin" group="system">
+	<name>System - Confident CAPTCHA</name>
+	<author>Phil Snell</author>
+	<authorEmail>phil@snellcode.com</authorEmail>
+	<authorUrl>http://snellcode.com</authorUrl>
+	<creationDate>6/16/2010</creationDate>
+	<copyright>Copyright (C) 2010 Phil Snell - All rights reserved.</copyright>
+	<version>1.0.2</version>
+	<license>GNU / GPL</license>
+	<description><![CDATA[Confident CAPTCHA is a plg_system for managing Confident CAPTCHA]]></description>
+	<files>
+		<filename plugin="confidentcaptcha">confidentcaptcha.php</filename>
+		<folder>confidentcaptcha</folder>
+	</files>
+	<params>
+		<param name="customer_id" type="text" label="Customer ID" />
+		<param name="site_id" type="text" label="Site ID" />
+		<param name="api_username" type="text" label="API Username" />
+		<param name="api_password" type="text" label="API Password" />
+		<param type="spacer" />
+		<param type="radio" default="1" name="enabled_site_contact" label="Enabled for Contact Form">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param type="radio" default="1" name="enabled_site_registration" label="Enabled for Registration Form">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param type="radio" default="0" name="enabled_administrator_login" label="Enabled for Administrator Login">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+	</params>
+</install>
