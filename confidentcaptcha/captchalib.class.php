@@ -43,7 +43,7 @@ class ConfidentCaptcha {
 	}
 
 	function check_credentials($api_settings) {
-		return call($api_settings['captcha_server_url'].'/check_credentials', 'GET', $api_settings);
+		return ConfidentCaptcha::call($api_settings['captcha_server_url'].'/check_credentials', 'GET', $api_settings);
 	}
 
 	function create_block($api_settings, $ipaddr, $user_agent) {
@@ -55,7 +55,7 @@ class ConfidentCaptcha {
 			'ip_addr' => $ipaddr,
 			'user_agent' => $user_agent,
 		);
-			$response = call($api_settings['captcha_server_url'].'/block', 'POST', $params);
+			$response = ConfidentCaptcha::call($api_settings['captcha_server_url'].'/block', 'POST', $params);
 		return $response;
 	}
 
@@ -89,7 +89,7 @@ class ConfidentCaptcha {
 			$_SESSION['code_color'] = $code_color;
 		}
 
-		$response = call($api_settings['captcha_server_url']."/block/$block_id/visual", 'POST', $params);
+		$response = ConfidentCaptcha::call($api_settings['captcha_server_url']."/block/$block_id/visual", 'POST', $params);
 		if ($response['status'] == 200)
 			return $response['body'];
 		if ($response['status']==410) {
@@ -102,7 +102,7 @@ class ConfidentCaptcha {
 		$params = Array(
 			'code' => $code,
 		);
-		$response = call($api_settings['captcha_server_url']."/block/$block_id/visual/$captcha_id", 'POST', $params);
+		$response = ConfidentCaptcha::call($api_settings['captcha_server_url']."/block/$block_id/visual/$captcha_id", 'POST', $params);
 		if ($response['status']==200 && $response['body']=="True") {
 			return true;
 		}
@@ -113,11 +113,11 @@ class ConfidentCaptcha {
 		$params = Array(
 			'phone_number' => $phone_number,
 		);
-		return call($api_settings['captcha_server_url']."/block/$block_id/audio", 'POST', $params);
+		return ConfidentCaptcha::call($api_settings['captcha_server_url']."/block/$block_id/audio", 'POST', $params);
 	}
 
 	function check_block_onekey($block_id, $captcha_id, $api_settings) {
-		return call($api_settings['captcha_server_url']."/block/$block_id/audio/$captcha_id", 'GET');
+		return ConfidentCaptcha::call($api_settings['captcha_server_url']."/block/$block_id/audio/$captcha_id", 'GET');
 	}
 
 	function create_captcha($api_settings, $ipaddr, $user_agent, $display_style='flyout',
@@ -165,7 +165,7 @@ class ConfidentCaptcha {
 			'site_id' => $api_settings['site_id'],
 			'phone_number' => $phone_number,
 		);
-		$response = call($api_settings['captcha_server_url']."/onekey", 'POST', $params);
+		$response = ConfidentCaptcha::call($api_settings['captcha_server_url']."/onekey", 'POST', $params);
 		return $response;
 	}
 
@@ -176,7 +176,7 @@ class ConfidentCaptcha {
 			'customer_id' => $api_settings['customer_id'],
 			'site_id' => $api_settings['site_id'],
 		);
-		return call($api_settings['captcha_server_url']."/onekey/$onekey_id", 'POST', $params);
+		return ConfidentCaptcha::call($api_settings['captcha_server_url']."/onekey/$onekey_id", 'POST', $params);
 		
 	}
 
