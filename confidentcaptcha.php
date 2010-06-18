@@ -1,6 +1,6 @@
 <?php
 /**
- * @version		1.0.2
+ * @version		1.0.3
  * @package		Confident CAPTCHA
  * @author 		Phil Snell
  * @author mail	phil@snellcode.com
@@ -73,23 +73,14 @@ class plgSystemConfidentCAPTCHA extends JPlugin
 		}
 	
 		if ($check) {
-			if (!$this->checkCaptcha($code, $captcha_id)) {
-				$app->redirect($redirect,'Captcha failed','error');
+			if (!$response = $this->check($code, $captcha_id)) {
+				$app->redirect($redirect);
 				die();
 			}
 		}	
 			
 	}
 
-	// wrapper for CC check captcha core  ( onAfterRoute() )
-	function checkCaptcha($code, $captcha_id)
-	{		
-		if( !ConfidentCaptcha::check_captcha($code, $captcha_id, $this->api_settings) ) {
-			return false;
-		}
-		return true;
-	}
-		
 	// the captch display logic
 	function onAfterDispatch()
 	{
@@ -98,45 +89,71 @@ class plgSystemConfidentCAPTCHA extends JPlugin
 		$document =& JFactory::getDocument();
 		$option = JRequest::getCmd('option');
 		$view = JRequest::getCmd('view');	
+		
+		// defaults
 		$display = false;
-		$pattern = '';
-		$area = '';
+		$pattern = '<button class="button validate" type="submit">';
+		$renderer = 'component';
 
-		// assign display to true for matching conditions
+		// assign display to true for matching conditions (override defaults)
 		if ($this->params->get('enabled_site_contact',1) && $app->isSite() && $option == 'com_contact' && $view == 'contact') {
 			$display = true;
-			$pattern = '<button class="button validate" type="submit">';
-			$area = 'component';
 		}
 
 		if ($this->params->get('enabled_site_registration',1) && $app->isSite() && $option == 'com_user' && $view == 'register') {
 			$display = true;
-			$pattern = '<button class="button validate" type="submit">';
-			$area = 'component';
 		}
 
 		if ($this->params->get('enabled_administrator_login',1) && $app->isAdmin() && $option == 'com_login') {
 			$display = true;
 			$pattern = '<div class="button_holder">';
-			$area = 'component';
 		}
 				
 		if ($display) {
 			$this->initScripts();
-			if ($captcha = $this->createCaptcha()) {
-				// may want to use DOM parser, regex, or teplate overrides as alternative methods to inject captcha
-				$buffer = $document->getBuffer($area);
+			if ($captcha = $this->create()) {
+				// could use DOM parser, regex, or teplate overrides as alternative methods to inject captcha
+				$buffer = $document->getBuffer($renderer);
 				$output = str_replace($pattern, $captcha.$pattern, $buffer);
-				$document->setBuffer($output, $area);
+				$document->setBuffer($output, $renderer);
 			} 
 		}
 				
 	}
 
+	// wrapper for CC check captcha core  ( onAfterRoute() )
+	function check($code, $captcha_id)
+	{		
+		$app =& JFactory::getApplication();
+		$response = ConfidentCaptcha::check_captcha($code, $captcha_id, $this->api_settings);
+
+		// an actual failure of the captcha test
+		if ($response['status'] === 200 && $response['body'] === 'False') {
+			$app->enqueueMessage('Captcha failed','error');
+			return false; // deny form only when true captcha failure
+		} 
+			
+		// all non 200 responses are not captcha errors, they are failure of credentials or server
+		if ($response['status'] !== 200) {
+			if ( $this->params->get('debug',1)) {
+				JError::raiseWarning($response['status'], $this->toString()."\n".$response['body']);
+			}
+		}
+		
+		return true; // allow form by default
+	}
+		
 	// wrapper for CC create_captch() method ( onAfterDispatch() )
-	function createCaptcha() 
+	function create() 
 	{
-		return ConfidentCaptcha::create_captcha($this->api_settings, $_SERVER['REMOTE_ADDR'], $_SERVER['HTTP_USER_AGENT'] );
+		$response = ConfidentCaptcha::create_captcha($this->api_settings, $_SERVER['REMOTE_ADDR'], $_SERVER['HTTP_USER_AGENT'] );
+		if ($response['status'] !== 200 ) {
+			if ( $this->params->get('debug',1)) {
+				JError::raiseWarning($response['status'], $this->toString()."\n".$response['body']);
+			}
+			return false;
+		}
+		return $response['body'];
 	}
 
 
@@ -149,8 +166,5 @@ class plgSystemConfidentCAPTCHA extends JPlugin
 		$headData['script']['text/javascript'] = "jQuery.noConflict();\n" . $headData['script']['text/javascript'];
 		$document->setHeadData($headData);
 	}
-
-
-
 
 }

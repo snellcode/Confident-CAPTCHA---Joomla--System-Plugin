@@ -1,9 +1,8 @@
 <?php
 
-$library_version = "20100610_PHP";
+$library_version = "20100608-PHP-FAILOPEN";
 
 function call($url, $method = "POST", $params = null) {
-	global $library_version;
 	if ($params == null) {
 		$params = array();
 	}
@@ -55,8 +54,7 @@ function create_block($api_settings, $ipaddr, $user_agent) {
 		'ip_addr' => $ipaddr,
 		'user_agent' => $user_agent,
 	);
-		$response = call($api_settings['captcha_server_url'].'/block', 'POST', $params);
-	return $response;
+	return call($api_settings['captcha_server_url'].'/block', 'POST', $params);
 }
 
 function create_instance($block_id, $api_settings, $display_style='flyout', 
@@ -78,35 +76,14 @@ function create_instance($block_id, $api_settings, $display_style='flyout',
 	if ($code_color != null && $code_color != '') {
 		$params['image_code_color'] = $code_color;
 	}
-
-	// Store settings for callback	
-	if (isset($_SESSION)) {
-		$_SESSION['display_style'] = $display_style;
-		$_SESSION['include_audio'] = $include_audio;
-		$_SESSION['height'] = $height;
-		$_SESSION['width'] = $width;
-		$_SESSION['captcha_length'] = $length;
-		$_SESSION['code_color'] = $code_color;
-	}
-
-	$response = call($api_settings['captcha_server_url']."/block/$block_id/visual", 'POST', $params);
-	if ($response['status'] == 200)
-		return $response['body'];
-	if ($response['status']==410) {
-		return $response['body'];
-	}
-	return "create_instance failed with error code ". $response['status'] .".";
+	return call($api_settings['captcha_server_url']."/block/$block_id/visual", 'POST', $params);
 }
 
 function check_instance($block_id, $captcha_id, $code, $api_settings) {
 	$params = Array(
 		'code' => $code,
 	);
-	$response = call($api_settings['captcha_server_url']."/block/$block_id/visual/$captcha_id", 'POST', $params);
-	if ($response['status']==200 && $response['body']=="True") {
-		return true;
-	}
-	return false; 
+	return call($api_settings['captcha_server_url']."/block/$block_id/visual/$captcha_id", 'POST', $params);
 }
 
 function start_block_onekey($block_id, $phone_number, $api_settings) {
@@ -134,12 +111,8 @@ function create_captcha($api_settings, $ipaddr, $user_agent, $display_style='fly
 		'width' => $width,
 		'captcha_length' => $length,
 		'image_code_color' => $code_color,
-	
 	);
-	$response = call($api_settings['captcha_server_url']."/captcha", 'POST', $params);
-	if ($response['status'] == 200)
-		return $response['body'];
-	return "create_captcha failed with error code ". $response['status'] .".";
+	return call($api_settings['captcha_server_url']."/captcha", 'POST', $params);
 }
 
 function check_captcha($code, $captcha_id, $api_settings) {
@@ -150,11 +123,7 @@ function check_captcha($code, $captcha_id, $api_settings) {
 		'site_id' => $api_settings['site_id'],
 		'code' => $code,
 	);
-	$response = call($api_settings['captcha_server_url']."/captcha/$captcha_id", 'POST', $params);
-	if ($response['status']==200 && $response['body']=="True") {
-		return true;
-	}
-	return false;
+	return call($api_settings['captcha_server_url']."/captcha/$captcha_id", 'POST', $params);
 }
 
 function start_onekey($phone_number, $api_settings) {
@@ -165,8 +134,7 @@ function start_onekey($phone_number, $api_settings) {
 		'site_id' => $api_settings['site_id'],
 		'phone_number' => $phone_number,
 	);
-	$response = call($api_settings['captcha_server_url']."/onekey", 'POST', $params);
-	return $response;
+	return call($api_settings['captcha_server_url']."/onekey", 'POST', $params);
 }
 
 function check_onekey($onekey_id, $api_settings) {
@@ -177,7 +145,6 @@ function check_onekey($onekey_id, $api_settings) {
 		'site_id' => $api_settings['site_id'],
 	);
 	return call($api_settings['captcha_server_url']."/onekey/$onekey_id", 'POST', $params);
-	
 }
 
 ?>
