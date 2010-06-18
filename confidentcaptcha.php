@@ -73,7 +73,7 @@ class plgSystemConfidentCAPTCHA extends JPlugin
 		}
 	
 		if ($check) {
-			if (!$response = $this->check($code, $captcha_id)) {
+			if (!$this->check($code, $captcha_id)) {
 				$app->redirect($redirect);
 				die();
 			}
