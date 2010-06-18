@@ -143,7 +143,7 @@ class plgSystemConfidentCAPTCHA extends JPlugin
 		return true; // allow form by default
 	}
 		
-	// wrapper for CC create_captch() method ( onAfterDispatch() )
+	// wrapper for CC create_captcha() method ( onAfterDispatch() )
 	function create() 
 	{
 		$response = ConfidentCaptcha::create_captcha($this->api_settings, $_SERVER['REMOTE_ADDR'], $_SERVER['HTTP_USER_AGENT'] );
