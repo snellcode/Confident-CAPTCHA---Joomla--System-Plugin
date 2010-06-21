@@ -18,4 +18,7 @@ $api_settings = array(
 //  you'll need a full URL path like '/confident/callback.php'
 $callback_url = 'callback.php';
 
-?>
+# Local overrides - used by Confident Technologies for testing.
+if (file_exists('local_config.php')) {
+   include('local_config.php');
+}

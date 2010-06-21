@@ -6,9 +6,9 @@
 	<authorUrl>http://snellcode.com</authorUrl>
 	<creationDate>6/16/2010</creationDate>
 	<copyright>Copyright (C) 2010 Phil Snell - All rights reserved.</copyright>
-	<version>1.0.3</version>
+	<version>1.0.4</version>
 	<license>GNU / GPL</license>
-	<description><![CDATA[A system plugin for integration of Confident CAPTCHA anti spam solution for web forms.]]></description>
+	<description><![CDATA[A system plugin for integration of Confident CAPTCHA anti spam solution for web forms.  Please remember to add your API key in the <a href="index.php?option=com_plugins&filter_type=system">plugin manager</a>, and then "publish" the plugin.  Debug mode will be on by default, and you may select some automatic integration modes for common forms.]]></description>
 	<files>
 		<filename plugin="confidentcaptcha">confidentcaptcha.php</filename>
 		<folder>confidentcaptcha</folder>

@@ -1,6 +1,6 @@
 <?php
 /**
- * @version		1.0.3
+ * @version		1.0.4
  * @package		Confident CAPTCHA
  * @author 		Phil Snell
  * @author mail	phil@snellcode.com
@@ -54,8 +54,8 @@ class plgSystemConfidentCAPTCHA extends JPlugin
 		$option = JRequest::getCmd('option');
 		$task = JRequest::getCmd('task');		
 		$check = false;
-		$code = JRequest::getVar('code');
-		$captcha_id = JRequest::getVar('captcha_id');
+		$confidentcaptcha_code = JRequest::getVar('confidentcaptcha_code');
+		$confidentcaptcha_captcha_id = JRequest::getVar('confidentcaptcha_captcha_id');
 		$redirect = $uri->toString();
 		
 		// assign check to true for matching conditions
@@ -73,7 +73,7 @@ class plgSystemConfidentCAPTCHA extends JPlugin
 		}
 	
 		if ($check) {
-			if (!$this->check($code, $captcha_id)) {
+			if (!$this->check($confidentcaptcha_code, $confidentcaptcha_captcha_id)) {
 				$app->redirect($redirect);
 				die();
 			}
@@ -127,20 +127,18 @@ class plgSystemConfidentCAPTCHA extends JPlugin
 		$app =& JFactory::getApplication();
 		$response = ConfidentCaptcha::check_captcha($code, $captcha_id, $this->api_settings);
 
-		// an actual failure of the captcha test
-		if ($response['status'] === 200 && $response['body'] === 'False') {
-			$app->enqueueMessage('Captcha failed','error');
-			return false; // deny form only when true captcha failure
-		} 
-			
-		// all non 200 responses are not captcha errors, they are failure of credentials or server
-		if ($response['status'] !== 200) {
-			if ( $this->params->get('debug',1)) {
-				JError::raiseWarning($response['status'], $this->toString()."\n".$response['body']);
-			}
+		// debug any non 200 reponse
+		if ($response['status'] !== 200) {   
+			$this->debug($response);
 		}
 		
-		return true; // allow form by default
+		// CAPTCHA solution was bad, or code empty, or bad captcha id (404)
+		if (($response['status'] === 200 && $response['body'] === 'False') || $response['status'] === 404) {   
+			$app->enqueueMessage('<p>CAPTCHA test failed</p>','error');
+			return false; // block form submit
+		}
+		
+		return true; // allow form submit
 	}
 		
 	// wrapper for CC create_captcha() method ( onAfterDispatch() )
@@ -148,15 +146,28 @@ class plgSystemConfidentCAPTCHA extends JPlugin
 	{
 		$response = ConfidentCaptcha::create_captcha($this->api_settings, $_SERVER['REMOTE_ADDR'], $_SERVER['HTTP_USER_AGENT'] );
 		if ($response['status'] !== 200 ) {
-			if ( $this->params->get('debug',1)) {
-				JError::raiseWarning($response['status'], $this->toString()."\n".$response['body']);
-			}
+			$this->debug($response);
 			return false;
 		}
 		return $response['body'];
 	}
 
-
+	// common debug handler 
+	function debug($response)
+	{
+		$message = '<p>'
+		 . 'Class : ' . $this->toString() . '<br />'
+		 . 'Error Code : ' . $response['status'] . '<br />'
+		 . 'Error Message : ' . strip_tags($response['body'])
+		 . '</p>'
+		;
+		
+		if ($this->params->get('debug',1)) {
+			JError::raiseWarning($response['status'], $message);
+		}
+	}
+	
+			
 	// common scripts needed for captcha display ( onAfterDispatch() )
 	function initScripts()
 	{

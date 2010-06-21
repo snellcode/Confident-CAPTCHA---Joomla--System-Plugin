@@ -1,8 +1,9 @@
 <?php
 
-$library_version = "20100608-PHP-FAILOPEN";
+$library_version = "20100621_PHP";
 
 function call($url, $method = "POST", $params = null) {
+	global $library_version;
 	if ($params == null) {
 		$params = array();
 	}
@@ -27,16 +28,20 @@ function call($url, $method = "POST", $params = null) {
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	$body = curl_exec($ch);
 
-	$response = array(
-		'status' => curl_getinfo($ch, CURLINFO_HTTP_CODE),
-		'body' => $body,
-	);
-	
 	if ($body === false) {
-		$response['error'] = curl_error($ch);
-		trigger_error($response['error'], E_USER_WARNING);
+		$response = array(
+			'status' => curl_getinfo($ch, CURLINFO_HTTP_CODE),
+			'body' => curl_error($ch),
+		);
+		// TODO: Should we instead use trigger_error?  Will pollute page w/o handler
+		//trigger_error($response['body'], E_USER_WARNING);
+	} else {
+		$response = array(
+			'status' => curl_getinfo($ch, CURLINFO_HTTP_CODE),
+			'body' => $body,
+		);
 	}
-
+	
 	curl_close($ch);
 	return $response;
 }
@@ -76,6 +81,17 @@ function create_instance($block_id, $api_settings, $display_style='flyout',
 	if ($code_color != null && $code_color != '') {
 		$params['image_code_color'] = $code_color;
 	}
+
+	// Store settings for callback	
+	if (isset($_SESSION)) {
+		$_SESSION['confidentcaptcha_display_style'] = $display_style;
+		$_SESSION['confidentcaptcha_include_audio'] = $include_audio;
+		$_SESSION['confidentcaptcha_height'] = $height;
+		$_SESSION['confidentcaptcha_width'] = $width;
+		$_SESSION['confidentcaptcha_captcha_length'] = $length;
+		$_SESSION['confidentcaptcha_code_color'] = $code_color;
+	}
+
 	return call($api_settings['captcha_server_url']."/block/$block_id/visual", 'POST', $params);
 }
 
@@ -146,5 +162,3 @@ function check_onekey($onekey_id, $api_settings) {
 	);
 	return call($api_settings['captcha_server_url']."/onekey/$onekey_id", 'POST', $params);
 }
-
-?>
