@@ -2,10 +2,10 @@
 /**
  * @version		1.0.4
  * @package		Confident CAPTCHA
- * @author 		Phil Snell
- * @author mail	phil@snellcode.com
- * @link		http://snellcode.com
- * @copyright	Copyright (C) 2010 Phil Snell - All rights reserved.
+ * @author 		Confident Technologies
+ * @author mail	info@confidenttechnologies.com
+ * @link		http://www.confidenttechnologies.com
+ * @copyright	Copyright (C) 2010 Confident Technologies - All rights reserved.
  * @license		GNU/GPL
  */
  
