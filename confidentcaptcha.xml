@@ -8,7 +8,7 @@
 	<copyright>Copyright (C) 2010 Confident Technologies - All rights reserved.</copyright>
 	<version>1.0.4</version>
 	<license>GNU / GPL</license>
-	<description><![CDATA[A system plugin for integration of Confident CAPTCHA anti spam solution for web forms. Please remember to sign up for your <a href="http://www.confidenttechnologies.com/purchase/CAPTCHA_signup.php" target="_blank">API key</a>, as you will need to enter this in the plugin settings. When you have your API key, go to <a href="index.php?option=com_plugins&filter_type=system">plugin manager</a>, click on <strong>System - Confident CAPTCHA</strong>, and enter your API details, "publish" the plugin, and save.  Debug mode will be on by default, and you may select some automatic integration modes for common forms.]]></description>
+	<description><![CDATA[A system plugin for integration of Confident CAPTCHA anti spam solution for web forms. Please remember to sign up for your <a href="http://www.confidenttechnologies.com/purchase/CAPTCHA_signup.php" target="_blank">API key</a>, as you will need to enter this in the plugin settings. When you have your API key, go to <a href="index.php?option=com_plugins&filter_type=system">plugin manager</a>, click on <em>System - Confident CAPTCHA</em>, and enter your API details, "publish" the plugin, and save.  Debug mode will be on by default, and you may select some automatic integration modes for common forms.]]></description>
 	<files>
 		<filename plugin="confidentcaptcha">confidentcaptcha.php</filename>
 		<folder>confidentcaptcha</folder>
