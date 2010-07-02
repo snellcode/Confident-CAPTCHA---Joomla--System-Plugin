@@ -1,6 +1,6 @@
 <?php
 /**
- * @version		1.0.4
+ * @version		1.0.5
  * @package		Confident CAPTCHA
  * @author 		Confident Technologies
  * @author mail	info@confidenttechnologies.com
@@ -125,6 +125,11 @@ class plgSystemConfidentCAPTCHA extends JPlugin
 	function check($code, $captcha_id)
 	{		
 		$app =& JFactory::getApplication();
+		$session =& JFactory::getSession();
+		if ($session->get('confidentcaptcha_enabled', false) === false) {
+			return true; // allow form on non-enabled sessions
+		}
+		
 		$response = ConfidentCaptcha::check_captcha($code, $captcha_id, $this->api_settings);
 
 		// debug any non 200 reponse
@@ -144,11 +149,14 @@ class plgSystemConfidentCAPTCHA extends JPlugin
 	// wrapper for CC create_captcha() method ( onAfterDispatch() )
 	function create() 
 	{
+		$session =& JFactory::getSession();
 		$response = ConfidentCaptcha::create_captcha($this->api_settings, $_SERVER['REMOTE_ADDR'], $_SERVER['HTTP_USER_AGENT'] );
 		if ($response['status'] !== 200 ) {
 			$this->debug($response);
+			$session->set('confidentcaptcha_enabled', false);
 			return false;
 		}
+		$session->set('confidentcaptcha_enabled', true);
 		return $response['body'];
 	}
 
