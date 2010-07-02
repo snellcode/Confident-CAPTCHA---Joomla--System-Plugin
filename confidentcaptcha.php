@@ -137,8 +137,8 @@ class plgSystemConfidentCAPTCHA extends JPlugin
 			$this->debug($response);
 		}
 		
-		// CAPTCHA solution was bad, or code empty, or bad captcha id (404)
-		if (($response['status'] === 200 && $response['body'] === 'False') || $response['status'] === 404) {   
+		// CAPTCHA solution was bad
+		if ($response['status'] === 200 && $response['body'] === 'False') {   
 			$app->enqueueMessage('<p>CAPTCHA test failed</p>','error');
 			return false; // block form submit
 		}
