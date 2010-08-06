@@ -43,11 +43,12 @@ class plgSystemConfidentCAPTCHA extends JPlugin
 		$this->ccap_options = $ccap_options;
 		
 		$ccap_api = new CCAP_API(
-			$this->params->get('customer_id'),
-			$this->params->get('site_id'),
-			$this->params->get('api_username'),
-			$this->params->get('api_password'),
-			$this->params->get('captcha_server_url','http://captcha.confidenttechnologies.com/')
+			$this->params->get('customer_id')
+			,$this->params->get('site_id')
+			,$this->params->get('api_username')
+			,$this->params->get('api_password')
+			,$this->params->get('captcha_server_url','http://captcha.confidenttechnologies.com/')
+			,'20100621_JOOMLA_1.0.5'
 		);
 		
 		$this->ccap_persist = new CCAP_PersistSession();
