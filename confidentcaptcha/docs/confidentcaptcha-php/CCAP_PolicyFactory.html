@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class CCAP_PolicyFactory</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name"><img src="../media/images/Class_logo.png"
+														alt=" Class"
+														title=" Class"
+														style="vertical-align: middle"> CCAP_PolicyFactory</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Policy factory for Confident CAPTCHA policies</p>
+<p class="description"><p>When recreating a policy with the help of the persistence engine, this  class can be used to create or restore a policy by class name.</p></p>
+		<p class="notes">
+			Located in <a class="field" href="_ccap_policy_factory.php.html">/ccap_policy_factory.php</a> (line <span class="field"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy_factory.php.html#a90">90</a></span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+												<div class="var-title">
+					<img src="../media/images/StaticVariable.png" alt=" " />
+					static <span class="var-type">boolean</span>
+					<a href="#$initialized" title="details" class="var-name">$initialized</a>
+				</div>
+																<div class="var-title">
+					<img src="../media/images/StaticVariable.png" alt=" " />
+					static <span class="var-type">array</span>
+					<a href="#$policies" title="details" class="var-name">$policies</a>
+				</div>
+																															</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+												<div class="method-definition">
+					<img src="../media/images/StaticMethod.png" alt=" "/>
+											static <span class="method-result">void</span>
+										<a href="#add" title="details" class="method-name">add</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$policy_name</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$policy_include</span> = <span class="var-default">NULL</span>])
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/StaticMethod.png" alt=" "/>
+											static <span class="method-result"><a href="../confidentcaptcha-php/CCAP_Policy.html">CCAP_Policy</a></span>
+										<a href="#create" title="details" class="method-name">create</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$policy_name</span>, <span class="var-type"><a href="../confidentcaptcha-php/CCAP_Api.html">CCAP_Api</a></span>&nbsp;<span class="var-name">$api</span>, <span class="var-type">CCAP_Persistance</span>&nbsp;<span class="var-name">$persist</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/StaticMethod.png" alt=" "/>
+											static <span class="method-result">void</span>
+										<a href="#init" title="details" class="method-name">init</a>
+										()
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/StaticMethod.png" alt=" "/>
+											static <span class="method-result">boolean</span>
+										<a href="#known" title="details" class="method-name">known</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$policy_name</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/StaticMethod.png" alt=" "/>
+											static <span class="method-result"><a href="../confidentcaptcha-php/CCAP_Policy.html">CCAP_Policy</a></span>
+										<a href="#restore" title="details" class="method-name">restore</a>
+											(<span class="var-type">CCAP_Persist</span>&nbsp;<span class="var-name">$persist</span>, <span class="var-type">CCAP_API</span>&nbsp;<span class="var-name">$api</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$fallback_policy_name</span> = <span class="var-default">NULL</span>])
+									</div>
+																																																							</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="var$initialized" id="$initialized"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			static <span class="var-type">boolean</span>
+			<span class="var-name">$initialized</span>
+			 = <span class="var-default"> FALSE</span>			(line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy_factory.php.html#a102">102</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Static class has been initialized</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$policies" id="$policies"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			static <span class="var-type">array</span>
+			<span class="var-name">$policies</span>
+			 = <span class="var-default">array()</span>			(line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy_factory.php.html#a96">96</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Construction parameters for a policy</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+														<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodadd" id="add"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/StaticMethod.png" />
+		<span class="method-title">static add</span> (line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy_factory.php.html#a139">139</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Teach the factory about a new policy</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			add
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$policy_name</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$policy_include</span> = <span class="var-default">NULL</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$policy_name</span><span class="var-description">: The name of the policy class</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$policy_include</span><span class="var-description">: The name of the policy include file</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcreate" id="create"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/StaticMethod.png" />
+		<span class="method-title">static create</span> (line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy_factory.php.html#a156">156</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Create a new policy by name</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> A newly created policy</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../confidentcaptcha-php/CCAP_Policy.html">CCAP_Policy</a></span>
+		<span class="method-name">
+			create
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$policy_name</span>, <span class="var-type"><a href="../confidentcaptcha-php/CCAP_Api.html">CCAP_Api</a></span>&nbsp;<span class="var-name">$api</span>, <span class="var-type">CCAP_Persistance</span>&nbsp;<span class="var-name">$persist</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$policy_name</span><span class="var-description">: The name of the policy to create</span>			</li>
+					<li>
+				<span class="var-type"><a href="../confidentcaptcha-php/CCAP_Api.html">CCAP_Api</a></span>
+				<span class="var-name">$api</span><span class="var-description">: The API class to pass to the policy</span>			</li>
+					<li>
+				<span class="var-type">CCAP_Persistance</span>
+				<span class="var-name">$persist</span><span class="var-description">: The persistance class for the policy</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodinit" id="init"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/StaticMethod.png" />
+		<span class="method-title">static init</span> (line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy_factory.php.html#a107">107</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Initialize the Policy Factory</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			init
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodknown" id="known"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/StaticMethod.png" />
+		<span class="method-title">static known</span> (line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy_factory.php.html#a127">127</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Does the factory know about a policy?</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> TRUE if known, FALSE if unknown</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			known
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$policy_name</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$policy_name</span><span class="var-description">: The name of the policy</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodrestore" id="restore"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/StaticMethod.png" />
+		<span class="method-title">static restore</span> (line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy_factory.php.html#a181">181</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Recreate a policy with the help of the persistence framework.</p>
+<p class="description"><p>If the persistance framework doesn't have a stored policy name, then  the $fallback_policy_name is used to create the policy.  If this is  unset, die() is called.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The restored policy or a new fallback policy</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../confidentcaptcha-php/CCAP_Policy.html">CCAP_Policy</a></span>
+		<span class="method-name">
+			restore
+		</span>
+					(<span class="var-type">CCAP_Persist</span>&nbsp;<span class="var-name">$persist</span>, <span class="var-type">CCAP_API</span>&nbsp;<span class="var-name">$api</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$fallback_policy_name</span> = <span class="var-default">NULL</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">CCAP_Persist</span>
+				<span class="var-name">$persist</span><span class="var-description">: The persistence engine to query</span>			</li>
+					<li>
+				<span class="var-type">CCAP_API</span>
+				<span class="var-name">$api</span><span class="var-description">: The API class to pass to the policy</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$fallback_policy_name</span><span class="var-description">: The fallback new policy to create</span>			</li>
+				</ul>
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+	
+	<p class="notes" id="credit">
+		Documentation generated on Mon, 02 Aug 2010 13:11:13 -0500 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

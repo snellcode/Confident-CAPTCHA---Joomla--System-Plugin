@@ -1,6 +1,6 @@
 <?php
 /**
- * @version		1.0.5
+ * @version		1.0.4
  * @package		Confident CAPTCHA
  * @author 		Confident Technologies
  * @author mail	info@confidenttechnologies.com
@@ -34,14 +34,24 @@ class plgSystemConfidentCAPTCHA extends JPlugin
 	function plgSystemConfidentCAPTCHA( &$subject, $config )
 	{
 		parent::__construct( $subject, $config );
-		require_once(dirname(__FILE__).'/confidentcaptcha/captchalib.class.php');
-		$this->api_settings = array(
-			'customer_id' => $this->params->get('customer_id'),
-			'site_id' => $this->params->get('site_id'),
-			'api_username' => $this->params->get('api_username'),
-			'api_password' => $this->params->get('api_password'),
-			'captcha_server_url' => $this->params->get('captcha_server_url','http://captcha.confidenttechnologies.com/'),
+		require_once(dirname(__FILE__).'/confidentcaptcha/config.php');
+		require_once(dirname(__FILE__).'/confidentcaptcha/confidentcaptcha/ccap_api.php');
+		require_once(dirname(__FILE__).'/confidentcaptcha/confidentcaptcha/ccap_persist.php');
+		require_once(dirname(__FILE__).'/confidentcaptcha/confidentcaptcha/ccap_prod_open_policy.php');
+		
+		$this->ccap_callback_url = $ccap_callback_url;
+		$this->ccap_options = $ccap_options;
+		
+		$ccap_api = new CCAP_API(
+			$this->params->get('customer_id'),
+			$this->params->get('site_id'),
+			$this->params->get('api_username'),
+			$this->params->get('api_password'),
+			$this->params->get('captcha_server_url','http://captcha.confidenttechnologies.com/')
 		);
+		
+		$this->ccap_persist = new CCAP_PersistSession();
+		$this->ccap_policy = new CCAP_ProductionFailOpen($ccap_api, $this->ccap_persist);
 	}
 
 	// the captch check logic
@@ -54,8 +64,6 @@ class plgSystemConfidentCAPTCHA extends JPlugin
 		$option = JRequest::getCmd('option');
 		$task = JRequest::getCmd('task');		
 		$check = false;
-		$confidentcaptcha_code = JRequest::getVar('confidentcaptcha_code');
-		$confidentcaptcha_captcha_id = JRequest::getVar('confidentcaptcha_captcha_id');
 		$redirect = $uri->toString();
 		
 		// assign check to true for matching conditions
@@ -73,7 +81,7 @@ class plgSystemConfidentCAPTCHA extends JPlugin
 		}
 	
 		if ($check) {
-			if (!$this->check($confidentcaptcha_code, $confidentcaptcha_captcha_id)) {
+			if (!$this->onCaptchaFormSubmit()) {
 				$app->redirect($redirect);
 				die();
 			}
@@ -110,8 +118,7 @@ class plgSystemConfidentCAPTCHA extends JPlugin
 		}
 				
 		if ($display) {
-			$this->initScripts();
-			if ($captcha = $this->create()) {
+			if ($captcha = $this->onCaptchaFormDisplay()) {
 				// could use DOM parser, regex, or teplate overrides as alternative methods to inject captcha
 				$buffer = $document->getBuffer($renderer);
 				$output = str_replace($pattern, $captcha.$pattern, $buffer);
@@ -122,68 +129,35 @@ class plgSystemConfidentCAPTCHA extends JPlugin
 	}
 
 	// wrapper for CC check captcha core  ( onAfterRoute() )
-	function check($code, $captcha_id)
-	{		
+	function onCaptchaFormSubmit()
+	{	
 		$app =& JFactory::getApplication();
-		$session =& JFactory::getSession();
-		if ($session->get('confidentcaptcha_enabled', false) === false) {
-			return true; // allow form on non-enabled sessions
-		}
+		$this->ccap_policy->start_captcha_page();
+		$check = $this->ccap_policy->check_form($_REQUEST);
 		
-		$response = ConfidentCaptcha::check_captcha($code, $captcha_id, $this->api_settings);
-
-		// debug any non 200 reponse
-		if ($response['status'] !== 200) {   
-			$this->debug($response);
-		}
-		
-		// CAPTCHA solution was bad
-		if ($response['status'] === 200 && $response['body'] === 'False') {   
-			$app->enqueueMessage('<p>CAPTCHA test failed</p>','error');
+		if (!$check) {
+			$app->enqueueMessage('CAPTCHA failed - please try again.', 'error');
 			return false; // block form submit
 		}
-		
+
 		return true; // allow form submit
+		
 	}
 		
 	// wrapper for CC create_captcha() method ( onAfterDispatch() )
-	function create() 
+	function onCaptchaFormDisplay() 
 	{
-		$session =& JFactory::getSession();
-		$response = ConfidentCaptcha::create_captcha($this->api_settings, $_SERVER['REMOTE_ADDR'], $_SERVER['HTTP_USER_AGENT'] );
-		if ($response['status'] !== 200 ) {
-			$this->debug($response);
-			$session->set('confidentcaptcha_enabled', false);
-			return false;
+		if ($this->params->get('load_jquery',1)) {
+			$document =& JFactory::getDocument();
+			$headData = $document->getHeadData();
+			$headData['scripts']['http://code.jquery.com/jquery-1.4.2.min.js'] = 'text/javascript';
+			$headData['script']['text/javascript'] = "jQuery.noConflict();\n" . $headData['script']['text/javascript'];
+			$document->setHeadData($headData);
 		}
-		$session->set('confidentcaptcha_enabled', true);
-		return $response['body'];
-	}
-
-	// common debug handler 
-	function debug($response)
-	{
-		$message = '<p>'
-		 . 'Class : ' . $this->toString() . '<br />'
-		 . 'Error Code : ' . $response['status'] . '<br />'
-		 . 'Error Message : ' . strip_tags($response['body'])
-		 . '</p>'
-		;
 		
-		if ($this->params->get('debug',1)) {
-			JError::raiseWarning($response['status'], $message);
-		}
-	}
-	
-			
-	// common scripts needed for captcha display ( onAfterDispatch() )
-	function initScripts()
-	{
-		$document =& JFactory::getDocument();
-		$headData = $document->getHeadData();
-		$headData['scripts']['http://code.jquery.com/jquery-1.4.2.min.js'] = 'text/javascript';
-		$headData['script']['text/javascript'] = "jQuery.noConflict();\n" . $headData['script']['text/javascript'];
-		$document->setHeadData($headData);
+		$this->ccap_policy->reset();
+		$ccap_captcha = $this->ccap_policy->create_visual($this->ccap_callback_url, $this->ccap_options);
+		return $ccap_captcha;
 	}
 
 }

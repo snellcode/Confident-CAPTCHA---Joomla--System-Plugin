@@ -4,7 +4,7 @@
 	<author>Confident Technologies</author>
 	<authorEmail>info@confidenttechnologies.com</authorEmail>
 	<authorUrl>http://www.confidenttechnologies.com</authorUrl>
-	<creationDate>7/2/2010</creationDate>
+	<creationDate>8/6/2010</creationDate>
 	<copyright>Copyright (C) 2010 Confident Technologies - All rights reserved.</copyright>
 	<version>1.0.5</version>
 	<license>GNU / GPL</license>
@@ -31,8 +31,7 @@
 			<option value="0">No</option>
 			<option value="1">Yes</option>
 		</param>
-		<param type="spacer" />
-		<param type="radio" default="1" name="debug" label="Debug Mode" description="Enables error messages">
+		<param type="radio" default="1" name="load_jquery" label="Load jQuery library" description="jQuery library is required, but if you already load it by other means, you can disable this one">
 			<option value="0">No</option>
 			<option value="1">Yes</option>
 		</param>

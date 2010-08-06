@@ -1,0 +1,1537 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class CCAP_Policy</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name"><img src="../media/images/Class_logo.png"
+														alt=" Class"
+														title=" Class"
+														style="vertical-align: middle"> CCAP_Policy</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+							<a href="#sec-descendents">Descendents</a>
+			|											<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+											<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+						
+			</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Policy interface for the Confident CAPTCHA API</p>
+<p class="description"><p>In normal siutations, the web server will: <ul><li>Call the Confident CAPTCHA API to create a CAPTCHA, and inject the
+   returned HTML into the page,</li><li>(Optionally) Use a callback to check a user's CAPTCHA solution with the
+   Confident CAPTCHA API immediately after they try it, and</li><li>At form submission, check with the Confident CAPTCHA API that the user
+   correctly solved the CAPTCHA.</li></ul>  However, if something goes wrong, such as failed API credentials or the  site is unavailable due to maintenance, then things get more complicated.  This policy interface takes care of the details of failed connections,  so that Confident CAPTCHA 'just works'.</p><p>There are state variables that allow the website developer to handle error  cases themselves, as well as customization points so that a derived class  can encapsulate the site policy, and different policies can be used on  different pages with a one-line change.</p><p>We don't recommend using this class directly, but instead using one of the  provided derived classes, or create your own derived policy.</p></p>
+		<p class="notes">
+			Located in <a class="field" href="_ccap_policy.php.html">/ccap_policy.php</a> (line <span class="field"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy.php.html#a109">109</a></span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+	<a name="sec-descendents"></a>
+	<div class="info-box">
+		<div class="info-box-title">Direct descendents</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+			<span class="disabled">Descendents</span>
+			|												<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+								|															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; white-space: nowrap">
+						<img src="../media/images/Class.png"
+								 alt=" class"
+								 title=" class"
+								 style="vertical-align: center"/>
+						<a href="../confidentcaptcha-php/CCAP_DevelopmentPolicy.html">CCAP_DevelopmentPolicy</a>
+					</td>
+					<td>
+											Confident CAPTCHA policy for page development
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; white-space: nowrap">
+						<img src="../media/images/Class.png"
+								 alt=" class"
+								 title=" class"
+								 style="vertical-align: center"/>
+						<a href="../confidentcaptcha-php/CCAP_ProductionFailClosed.html">CCAP_ProductionFailClosed</a>
+					</td>
+					<td>
+											Confident CAPTCHA policy for production, failures leave page closed
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; white-space: nowrap">
+						<img src="../media/images/Class.png"
+								 alt=" class"
+								 title=" class"
+								 style="vertical-align: center"/>
+						<a href="../confidentcaptcha-php/CCAP_ProductionFailOpen.html">CCAP_ProductionFailOpen</a>
+					</td>
+					<td>
+											Confident CAPTCHA policy for production, server failures leave page open
+										</td>
+				</tr>
+							</table>
+		</div>
+	</div>
+
+	<a name="sec-const-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constant Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendants</a> |
+						<span class="disabled">Constants</span> (<a href="#sec-consts">details</a>)
+												<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<div class="const-summary">
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#CALLBACK_CHECK" title="details" class="const-name">CALLBACK_CHECK</a> = 					<span class="var-type"> 'callback_check'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#CALLBACK_OK" title="details" class="const-name">CALLBACK_OK</a> = 					<span class="var-type"> 'The callback is working'</span>
+
+				</div>
+							</div>
+		</div>
+	</div>
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendants</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																																																																																																																																																																<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type"><a href="../confidentcaptcha-php/CCAP_Api.html">CCAP_Api</a></span>
+					<a href="#$api" title="details" class="var-name">$api</a>
+				</div>
+																<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">integer</span>
+					<a href="#$api_debug_level" title="details" class="var-name">$api_debug_level</a>
+				</div>
+																<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">boolean</span>
+					<a href="#$audio_authenticated" title="details" class="var-name">$audio_authenticated</a>
+				</div>
+																<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">boolean</span>
+					<a href="#$audio_creation_succeeded" title="details" class="var-name">$audio_creation_succeeded</a>
+				</div>
+																<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">string</span>
+					<a href="#$audio_id" title="details" class="var-name">$audio_id</a>
+				</div>
+																<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">boolean</span>
+					<a href="#$block_done" title="details" class="var-name">$block_done</a>
+				</div>
+																<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">string</span>
+					<a href="#$block_id" title="details" class="var-name">$block_id</a>
+				</div>
+																<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">string</span>
+					<a href="#$callback_url" title="details" class="var-name">$callback_url</a>
+				</div>
+																<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">string</span>
+					<a href="#$code_color" title="details" class="var-name">$code_color</a>
+				</div>
+																<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">string</span>
+					<a href="#$display_style" title="details" class="var-name">$display_style</a>
+				</div>
+																<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">integer</span>
+					<a href="#$height" title="details" class="var-name">$height</a>
+				</div>
+																<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">boolean</span>
+					<a href="#$include_audio" title="details" class="var-name">$include_audio</a>
+				</div>
+																<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">integer</span>
+					<a href="#$length" title="details" class="var-name">$length</a>
+				</div>
+																<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type"><a href="../confidentcaptcha-php/CCAP_Persistence.html">CCAP_Persistence</a></span>
+					<a href="#$persist" title="details" class="var-name">$persist</a>
+				</div>
+																<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">boolean</span>
+					<a href="#$visual_authenticated" title="details" class="var-name">$visual_authenticated</a>
+				</div>
+																<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">boolean</span>
+					<a href="#$visual_creation_succeeded" title="details" class="var-name">$visual_creation_succeeded</a>
+				</div>
+																<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">string</span>
+					<a href="#$visual_id" title="details" class="var-name">$visual_id</a>
+				</div>
+																<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">integer</span>
+					<a href="#$width" title="details" class="var-name">$width</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendants</a> |
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																																																																																																								<div class="method-definition">
+					<img src="../media/images/Constructor.png" alt=" "/>
+											<span class="method-result">CCAP_Policy</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											(<span class="var-type"><a href="../confidentcaptcha-php/CCAP_Api.html">CCAP_Api</a></span>&nbsp;<span class="var-name">$api</span>, <span class="var-type">CCAP_Persistance</span>&nbsp;<span class="var-name">$persist</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">array</span>
+										<a href="#callback" title="details" class="method-name">callback</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$endpoint</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$request</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">array</span>
+										<a href="#callback_extensions" title="details" class="method-name">callback_extensions</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$endpoint</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$request</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#call_api" title="details" class="method-name">call_api</a>
+										()
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">boolean</span>
+										<a href="#check_audio" title="details" class="method-name">check_audio</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$block_id</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$captcha_id</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">array</span>
+										<a href="#check_config" title="details" class="method-name">check_config</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$callback_url</span> = <span class="var-default">NULL</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$options</span> = <span class="var-default">NULL</span>])
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">boolean</span>
+										<a href="#check_form" title="details" class="method-name">check_form</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$request</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">boolean</span>
+										<a href="#check_visual" title="details" class="method-name">check_visual</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$block_id</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$captcha_id</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$code</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#create_block" title="details" class="method-name">create_block</a>
+										()
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">string</span>
+										<a href="#create_visual" title="details" class="method-name">create_visual</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$callback_url</span> = <span class="var-default">NULL</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$options</span> = <span class="var-default">NULL</span>])
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#generate_debug" title="details" class="method-name">generate_debug</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$api_func_name</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$api_func_args</span>, <span class="var-type"><a href="../confidentcaptcha-php/CCAP_ApiResponse.html">CCAP_ApiResponse</a></span>&nbsp;<span class="var-name">$response</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#handle_debug" title="details" class="method-name">handle_debug</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$debug</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#reset" title="details" class="method-name">reset</a>
+										()
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">boolean</span>
+										<a href="#respond_check_audio" title="details" class="method-name">respond_check_audio</a>
+											(<span class="var-type"><a href="../confidentcaptcha-php/CCAP_ApiResponse.html">CCAP_ApiResponse</a></span>&nbsp;<span class="var-name">$response</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">boolean</span>
+										<a href="#respond_check_visual" title="details" class="method-name">respond_check_visual</a>
+											(<span class="var-type"><a href="../confidentcaptcha-php/CCAP_ApiResponse.html">CCAP_ApiResponse</a></span>&nbsp;<span class="var-name">$response</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">string</span>
+										<a href="#respond_create_audio" title="details" class="method-name">respond_create_audio</a>
+											(<span class="var-type"><a href="../confidentcaptcha-php/CCAP_ApiResponse.html">CCAP_ApiResponse</a></span>&nbsp;<span class="var-name">$response</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">string</span>
+										<a href="#respond_create_visual" title="details" class="method-name">respond_create_visual</a>
+											(<span class="var-type"><a href="../confidentcaptcha-php/CCAP_ApiResponse.html">CCAP_ApiResponse</a></span>&nbsp;<span class="var-name">$response</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">string</span>
+										<a href="#start_audio" title="details" class="method-name">start_audio</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$phone_number</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$block_id</span> = <span class="var-default">NULL</span>])
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#start_captcha_page" title="details" class="method-name">start_captcha_page</a>
+										()
+									</div>
+											</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+												<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			
+<a name="var$api" id="$api"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type"><a href="../confidentcaptcha-php/CCAP_Api.html">CCAP_Api</a></span>
+			<span class="var-name">$api</span>
+			 = <span class="var-default"> NULL</span>			(line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy.php.html#a115">115</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">API interface to use for calls</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$api_debug_level" id="$api_debug_level"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">integer</span>
+			<span class="var-name">$api_debug_level</span>
+			 = <span class="var-default"> 0</span>			(line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy.php.html#a125">125</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Debug Level for API calls</p>
+<p class="description"><p><ul><li>0: No debugging</li><li>1: Only exceptions (non-200s)</li><li>2: All API calls</li></ul></p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$audio_authenticated" id="$audio_authenticated"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">boolean</span>
+			<span class="var-name">$audio_authenticated</span>
+			 = <span class="var-default"> NULL</span>			(line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy.php.html#a227">227</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Audio CAPTCHA - Authenticated</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$audio_creation_succeeded" id="$audio_creation_succeeded"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">boolean</span>
+			<span class="var-name">$audio_creation_succeeded</span>
+			 = <span class="var-default"> NULL</span>			(line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy.php.html#a221">221</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Audio CAPTCHA - TRUE if last start_audio succeeded</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$audio_id" id="$audio_id"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$audio_id</span>
+			 = <span class="var-default"> NULL</span>			(line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy.php.html#a233">233</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Audio CAPTCHA - Audio CAPTCHA ID</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$block_done" id="$block_done"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">boolean</span>
+			<span class="var-name">$block_done</span>
+			 = <span class="var-default"> NULL</span>			(line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy.php.html#a149">149</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Visual CAPTCHA - No more CAPTCHAs can be created with this block</p>
+<p class="description"><p>When the callback is used, a user gets instant feedback if their  guess is correct, and has a chance to try again.  They don't get  unlimited chances - eventually the API server will respond 430 GONE.  When that happens, this boolean is TRUE.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$block_id" id="$block_id"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$block_id</span>
+			 = <span class="var-default"> NULL</span>			(line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy.php.html#a137">137</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Block ID for multiple captcha</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$callback_url" id="$callback_url"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$callback_url</span>
+			 = <span class="var-default"> NULL</span>			(line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy.php.html#a239">239</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Callback URL</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$code_color" id="$code_color"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$code_color</span>
+			 = <span class="var-default"> NULL</span>			(line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy.php.html#a197">197</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Visual CAPTCHA - The color of the letter code on pictures</p>
+<p class="description"><p>If unset, the CAPTCHA API server defaults to 'White'</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$display_style" id="$display_style"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$display_style</span>
+			 = <span class="var-default"> NULL</span>			(line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy.php.html#a157">157</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Visual CAPTCHA display style ('flyout' or 'lightbox')</p>
+<p class="description"><p>If unset, the CAPTCHA API server defaults to 'lightbox'</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$height" id="$height"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">integer</span>
+			<span class="var-name">$height</span>
+			 = <span class="var-default"> NULL</span>			(line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy.php.html#a173">173</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Visual CAPTCHA - Height in pictures</p>
+<p class="description"><p>If unset, the CAPTCHA API server defaults to 3</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$include_audio" id="$include_audio"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">boolean</span>
+			<span class="var-name">$include_audio</span>
+			 = <span class="var-default"> NULL</span>			(line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy.php.html#a165">165</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Visual CAPTCHA - include the audio CAPTCHA alternative (if enabled)</p>
+<p class="description"><p>If unset, the CAPTCHA API server defaults to FALSE</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$length" id="$length"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">integer</span>
+			<span class="var-name">$length</span>
+			 = <span class="var-default"> NULL</span>			(line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy.php.html#a189">189</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Visual CAPTCHA - Number of pictures the user has to select</p>
+<p class="description"><p>If unset, the CAPTCHA API server defaults to 4</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$persist" id="$persist"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type"><a href="../confidentcaptcha-php/CCAP_Persistence.html">CCAP_Persistence</a></span>
+			<span class="var-name">$persist</span>
+			 = <span class="var-default"> NULL</span>			(line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy.php.html#a131">131</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Persistence interface to use for storing data</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$visual_authenticated" id="$visual_authenticated"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">boolean</span>
+			<span class="var-name">$visual_authenticated</span>
+			 = <span class="var-default"> NULL</span>			(line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy.php.html#a209">209</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Visual CAPTCHA - TRUE if authentication succeeded</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$visual_creation_succeeded" id="$visual_creation_succeeded"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">boolean</span>
+			<span class="var-name">$visual_creation_succeeded</span>
+			 = <span class="var-default"> NULL</span>			(line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy.php.html#a203">203</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Visual CAPTCHA - TRUE if last create_visual_html succeeded</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$visual_id" id="$visual_id"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$visual_id</span>
+			 = <span class="var-default"> NULL</span>			(line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy.php.html#a215">215</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Visual CAPTCHA - Visual CAPTCHA ID</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$width" id="$width"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">integer</span>
+			<span class="var-name">$width</span>
+			 = <span class="var-default"> NULL</span>			(line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy.php.html#a181">181</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Visual CAPTCHA - Width in pictures</p>
+<p class="description"><p>If unset, the CAPTCHA API server defaults to 3</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+														<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Constructor.png" />
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy.php.html#a259">259</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Construct a CCAP_Policy</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">CCAP_Policy</span>
+		<span class="method-name">
+			__construct
+		</span>
+					(<span class="var-type"><a href="../confidentcaptcha-php/CCAP_Api.html">CCAP_Api</a></span>&nbsp;<span class="var-name">$api</span>, <span class="var-type">CCAP_Persistance</span>&nbsp;<span class="var-name">$persist</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../confidentcaptcha-php/CCAP_Api.html">CCAP_Api</a></span>
+				<span class="var-name">$api</span><span class="var-description">: The API interface to use for calls</span>			</li>
+					<li>
+				<span class="var-type">CCAP_Persistance</span>
+				<span class="var-name">$persist</span><span class="var-description">: The persistance strategy object</span>			</li>
+				</ul>
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../confidentcaptcha-php/CCAP_DevelopmentPolicy.html#method__construct">CCAP_DevelopmentPolicy::__construct()</a>
+								: Construct a CCAP_DevelopmentPolicy
+							</li>
+				</ul>
+	</div>
+<a name="methodcallback" id="callback"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">callback</span> (line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy.php.html#a925">925</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Handle asynchronous callbacks</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> First element is content, second is array of headers</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			callback
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$endpoint</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$request</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$endpoint</span><span class="var-description">: The desired callback endpoint</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$request</span><span class="var-description">: The request parameters</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcallback_extensions" id="callback_extensions"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">callback_extensions</span> (line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy.php.html#a972">972</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Entrypoint for derived classes to provide extended callback functions</p>
+<p class="description"><p>Derived classes should return NULL on unknown functions</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> First element is content, second is array of headers</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			callback_extensions
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$endpoint</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$request</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$endpoint</span><span class="var-description">: The desired callback endpoint</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$request</span><span class="var-description">: The request parameters</span>			</li>
+				</ul>
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../confidentcaptcha-php/CCAP_DevelopmentPolicy.html#methodcallback_extensions">CCAP_DevelopmentPolicy::callback_extensions()</a>
+								: Callback for developer policy - add get_debug function
+							</li>
+				</ul>
+	</div>
+<a name="methodcall_api" id="call_api"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">call_api</span> (line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy.php.html#a457">457</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Call an API function</p>
+<p class="description"><p>This awkward function is used so that API calls can be optionally  logged for debugging purposes.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			call_api
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodcheck_audio" id="check_audio"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">check_audio</span> (line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy.php.html#a828">828</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Check audio CAPTCHA submission</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> true if success, false if failure</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			check_audio
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$block_id</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$captcha_id</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$block_id</span><span class="var-description">: Block ID from form</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$captcha_id</span><span class="var-description">: CAPTCHA ID from form</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcheck_config" id="check_config"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">check_config</span> (line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy.php.html#a285">285</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Check local and remote configuration</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> with keys 'html' (HTML string) and 'passed' (boolean)</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			check_config
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$callback_url</span> = <span class="var-default">NULL</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$options</span> = <span class="var-default">NULL</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$callback_url</span><span class="var-description">: - Callback URL for audio, instant feedback</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$options</span><span class="var-description">: - CAPTCHA options</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcheck_form" id="check_form"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">check_form</span> (line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy.php.html#a899">899</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Check a form submission, pulling parameters out of the request and  checking for instant authentication.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> TRUE if authenticated</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			check_form
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$request</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$request</span><span class="var-description">: The form request parameters ($_REQUEST)</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcheck_visual" id="check_visual"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">check_visual</span> (line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy.php.html#a690">690</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Check visual CAPTCHA submission</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> true if success, false if failure</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			check_visual
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$block_id</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$captcha_id</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$code</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$block_id</span><span class="var-description">: Block ID from form, (NULL if not included)</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$captcha_id</span><span class="var-description">: CAPTCHA ID from form</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$code</span><span class="var-description">: User's guess from form</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcreate_block" id="create_block"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">create_block</span> (line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy.php.html#a547">547</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Create a multiple-CAPTCHA block on the CAPTCHA API server</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			create_block
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodcreate_visual" id="create_visual"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">create_visual</span> (line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy.php.html#a575">575</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Create HTML for a visual CAPTCHA</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> HTML fragment to inject into page</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			create_visual
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$callback_url</span> = <span class="var-default">NULL</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$options</span> = <span class="var-default">NULL</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$callback_url</span><span class="var-description">: The callback URL for instant feedback,                              or NULL for delayed feedback</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$options</span><span class="var-description">: An array of CAPTCHA creation options, including: <ul><li>code_color:    Color of letter code on pictures</li><li>display_style: 'flyout' or 'lightbox'</li><li>height:        Height of visual CAPTCHA in pictures</li><li>include_audio: Include audio CAPTCHA (if enabled)</li><li>length:        Number of pictures the user must pick</li><li>width:         Width of visual CAPTCHA in pictures</li></ul></span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgenerate_debug" id="generate_debug"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">generate_debug</span> (line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy.php.html#a479">479</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Generate a debug statement for an API call</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			generate_debug
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$api_func_name</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$api_func_args</span>, <span class="var-type"><a href="../confidentcaptcha-php/CCAP_ApiResponse.html">CCAP_ApiResponse</a></span>&nbsp;<span class="var-name">$response</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$api_func_name</span><span class="var-description">: Name of the CCAP_Api function</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$api_func_args</span><span class="var-description">: Arguments to the CCAP_Api function</span>			</li>
+					<li>
+				<span class="var-type"><a href="../confidentcaptcha-php/CCAP_ApiResponse.html">CCAP_ApiResponse</a></span>
+				<span class="var-name">$response</span><span class="var-description">: The response from <a href="../confidentcaptcha-php/CCAP_Api.html">CCAP_Api</a></span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodhandle_debug" id="handle_debug"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">handle_debug</span> (line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy.php.html#a514">514</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Handle a debug statement</p>
+<p class="description"><p>The default implementation does nothing.  You can override to send to  a log file, send an email to developers, or something else.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			handle_debug
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$debug</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$debug</span><span class="var-description">: The debug statement</span>			</li>
+				</ul>
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../confidentcaptcha-php/CCAP_DevelopmentPolicy.html#methodhandle_debug">CCAP_DevelopmentPolicy::handle_debug()</a>
+								: Handle debug information by dumping to output
+							</li>
+				</ul>
+	</div>
+<a name="methodreset" id="reset"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">reset</span> (line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy.php.html#a524">524</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Reset to initial state, discarding any current CAPTCHA</p>
+<p class="description"><p>This should be called after a CAPTCHA has been checked and the form  accepted or rejected.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			reset
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodrespond_check_audio" id="respond_check_audio"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">respond_check_audio</span> (line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy.php.html#a887">887</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Create the response boolean for check_audio</p>
+<p class="description"><p>Derived classes may want to change the response on API failures.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> TRUE if authenticated</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			respond_check_audio
+		</span>
+					(<span class="var-type"><a href="../confidentcaptcha-php/CCAP_ApiResponse.html">CCAP_ApiResponse</a></span>&nbsp;<span class="var-name">$response</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../confidentcaptcha-php/CCAP_ApiResponse.html">CCAP_ApiResponse</a></span>
+				<span class="var-name">$response</span><span class="var-description">: The response from <a href="../confidentcaptcha-php/CCAP_Api.html">CCAP_Api</a></span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodrespond_check_visual" id="respond_check_visual"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">respond_check_visual</span> (line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy.php.html#a743">743</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Create the response boolean for check_visual</p>
+<p class="description"><p>Derived classes may want to change the response on API failures.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> TRUE if authenticated</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			respond_check_visual
+		</span>
+					(<span class="var-type"><a href="../confidentcaptcha-php/CCAP_ApiResponse.html">CCAP_ApiResponse</a></span>&nbsp;<span class="var-name">$response</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../confidentcaptcha-php/CCAP_ApiResponse.html">CCAP_ApiResponse</a></span>
+				<span class="var-name">$response</span><span class="var-description">: The response from <a href="../confidentcaptcha-php/CCAP_Api.html">CCAP_Api</a></span>			</li>
+				</ul>
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../confidentcaptcha-php/CCAP_ProductionFailOpen.html#methodrespond_check_visual">CCAP_ProductionFailOpen::respond_check_visual()</a>
+								: Respond with success if captcha creation failed
+							</li>
+				</ul>
+	</div>
+<a name="methodrespond_create_audio" id="respond_create_audio"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">respond_create_audio</span> (line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy.php.html#a805">805</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Create the response XML for start_audio</p>
+<p class="description"><p>Derived classes may want to modify the XML, or perform different  actions on API failures</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Audio response XML</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			respond_create_audio
+		</span>
+					(<span class="var-type"><a href="../confidentcaptcha-php/CCAP_ApiResponse.html">CCAP_ApiResponse</a></span>&nbsp;<span class="var-name">$response</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../confidentcaptcha-php/CCAP_ApiResponse.html">CCAP_ApiResponse</a></span>
+				<span class="var-name">$response</span><span class="var-description">: The response from <a href="../confidentcaptcha-php/CCAP_Api.html">CCAP_Api</a></span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodrespond_create_visual" id="respond_create_visual"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">respond_create_visual</span> (line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy.php.html#a672">672</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Create the response HTML for create_visual</p>
+<p class="description"><p>Derived classes may want to modify the HTML, or perform different  actions on API failures</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> HTML to inject into the page</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			respond_create_visual
+		</span>
+					(<span class="var-type"><a href="../confidentcaptcha-php/CCAP_ApiResponse.html">CCAP_ApiResponse</a></span>&nbsp;<span class="var-name">$response</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../confidentcaptcha-php/CCAP_ApiResponse.html">CCAP_ApiResponse</a></span>
+				<span class="var-name">$response</span><span class="var-description">: The response from <a href="../confidentcaptcha-php/CCAP_Api.html">CCAP_Api</a></span>			</li>
+				</ul>
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../confidentcaptcha-php/CCAP_ProductionFailClosed.html#methodrespond_create_visual">CCAP_ProductionFailClosed::respond_create_visual()</a>
+								: On creation failure, tell the user that the form is broken
+							</li>
+				</ul>
+	</div>
+<a name="methodstart_audio" id="start_audio"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">start_audio</span> (line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy.php.html#a760">760</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Start an audio CAPTCHA</p>
+<p class="description"><p>If $block_id is set, then it will be used.  Otherwise, a new block  will be created.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Audio response XML</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			start_audio
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$phone_number</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$block_id</span> = <span class="var-default">NULL</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$phone_number</span><span class="var-description">: US phone number with area code, such as                               9185551234</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$block_id</span><span class="var-description">: Block ID from form, or NULL to generate a                               new block ID</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodstart_captcha_page" id="start_captcha_page"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">start_captcha_page</span> (line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy.php.html#a272">272</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Start a page containing CAPTCHA</p>
+<p class="description"><p>When using CCAP_PersistSession for persistence, this will  call session_start() if needed, and load the previous CAPTCHA  state.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			start_captcha_page
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+	<a name="sec-consts"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendants</a> |
+										<a href="#sec-var-summary">Constants</a> (<span class="disabled">details</span>)
+						
+			
+												<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+														| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="constCALLBACK_CHECK" id="CALLBACK_CHECK"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">CALLBACK_CHECK</span>
+			 = <span class="const-default"> 'callback_check'</span>
+			(line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy.php.html#a245">245</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Callback - Endpoint for checking callback</p>
+	
+	
+</div>
+<a name="constCALLBACK_OK" id="CALLBACK_OK"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">CALLBACK_OK</span>
+			 = <span class="const-default"> 'The callback is working'</span>
+			(line <span class="line-number"><a href="../__filesource/fsource_confidentcaptcha-php__ccap_policy.php.html#a251">251</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Callback - Value returned by endpoint check</p>
+	
+	
+</div>
+						
+		</div>
+	</div>
+	
+	<p class="notes" id="credit">
+		Documentation generated on Mon, 02 Aug 2010 13:11:13 -0500 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>
