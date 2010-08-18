@@ -75,13 +75,13 @@ If licensed under the Simplified BSD License:
  * @copyright Copyright (c) 2010, Confident Technologies, Inc.
  * @license   http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU GPL v2.0 or later
  * @license   http://www.opensource.org/licenses/bsd-license.php Simplified BSD License
- * @version   20100621_PHP_1.1
+ * @version   20100813_PHP_1.2
  */
 
 /**
  * Include definition of {@link CCAP_Policy}
  */
-require_once("confidentcaptcha/ccap_policy.php");
+require_once("ccap_policy.php");
 
 /**
  * Confident CAPTCHA policy for page development

@@ -76,7 +76,7 @@ If licensed under the Simplified BSD License:
  * @copyright Copyright (c) 2010, Confident Technologies, Inc.
  * @license   http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU GPL v2.0 or later
  * @license   http://www.opensource.org/licenses/bsd-license.php Simplified BSD License
- * @version   20100621_PHP_1.1
+ * @version   20100813_PHP_1.2
  */
 
 /**
@@ -109,11 +109,11 @@ class CCAP_PolicyFactory
         if (!CCap_PolicyFactory::$initialized) {
             CCap_PolicyFactory::$initialized = NULL;
             CCap_PolicyFactory::add('CCAP_ProductionFailOpen',
-                'confidentcaptcha/ccap_prod_open_policy.php');
+                'ccap_prod_open_policy.php');
             CCap_PolicyFactory::add('CCAP_ProductionFailClosed',
-                'confidentcaptcha/ccap_prod_closed_policy.php');
+                'ccap_prod_closed_policy.php');
             CCap_PolicyFactory::add('CCAP_DevelopmentPolicy',
-                'confidentcaptcha/ccap_dev_policy.php');
+                'ccap_dev_policy.php');
             CCap_PolicyFactory::$initialized = TRUE;
         }
     }
@@ -195,3 +195,4 @@ class CCAP_PolicyFactory
         }
     }
 }
+

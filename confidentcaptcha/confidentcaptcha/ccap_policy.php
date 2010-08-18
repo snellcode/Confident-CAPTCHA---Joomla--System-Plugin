@@ -76,7 +76,7 @@ If licensed under the Simplified BSD License:
  * @copyright Copyright (c) 2010, Confident Technologies, Inc.
  * @license   http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU GPL v2.0 or later
  * @license   http://www.opensource.org/licenses/bsd-license.php Simplified BSD License
- * @version   20100621_PHP_1.1
+ * @version   20100813_PHP_1.2
  */
 
 
@@ -282,7 +282,7 @@ class CCAP_Policy
      *
      * @return array with keys 'html' (HTML string) and 'passed' (boolean)
      */
-    public function check_config($callback_url = NULL, $options = NULL)
+    public function check_config($callback_url = NULL, $options = array())
     {
         // Local checks
         $local_config = array(array("Item", "Value",
@@ -564,7 +564,7 @@ $d_body";
      *                             or NULL for delayed feedback
      * @param array $options An array of CAPTCHA creation options, including:
      *  - code_color:    Color of letter code on pictures
-     *  - display_style: 'flyout' or 'lightbox'
+     *  - display_style: 'flyout', 'lightbox', or 'modal'
      *  - height:        Height of visual CAPTCHA in pictures
      *  - include_audio: Include audio CAPTCHA (if enabled)
      *  - length:        Number of pictures the user must pick

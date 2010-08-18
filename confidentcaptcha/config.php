@@ -26,7 +26,7 @@ $ccap_callback_url = 'callback.php';
  */
 $ccap_options = array(
     /**
-     * Visual CAPTCHA - Display style ('flyout' or 'lightbox')
+     * Visual CAPTCHA - Display style ('flyout', 'lightbox', or 'modal')
      * If unset, the CAPTCHA API server defaults to 'lightbox'
      */
     // 'display_style' => 'lightbox',

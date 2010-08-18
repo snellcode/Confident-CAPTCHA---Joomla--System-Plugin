@@ -176,7 +176,8 @@ if ($strength < 1000) $strength_text .= ' (must be at least 1 in 1000)';
 $valid_display_styles = Array(
     '' => "Use default of 'flyout'", 
     'flyout' => 'When clicked, the CAPTCHA flies out from the button',
-    'lightbox' => 'When clicked, the CAPTCHA appears in a lightbox'
+    'lightbox' => 'When clicked, the CAPTCHA appears in a lightbox',
+    'modal' => 'When clicked, the CAPTCHA appears in a modal lightbox',
 );
 if (!in_array($display_style, array_keys($valid_display_styles))) {
     $display_style = NULL;

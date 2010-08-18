@@ -76,7 +76,7 @@ If licensed under the Simplified BSD License:
  * @copyright Copyright (c) 2010, Confident Technologies, Inc.
  * @license   http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU GPL v2.0 or later
  * @license   http://www.opensource.org/licenses/bsd-license.php Simplified BSD License
- * @version   20100621_PHP_1.1
+ * @version   20100813_PHP_1.2
  */
 
 /**
@@ -255,7 +255,7 @@ class CCAP_Api
     public function __construct($customer_id, $site_id, $api_username,
         $api_password,
         $captcha_server_url = 'http://captcha.confidenttechnologies.com',
-        $library_version = '20100621_PHP_1.1', $use_shortcuts = FALSE)
+        $library_version = '20100813_PHP_1.2', $use_shortcuts = FALSE)
     {
         $this->customer_id = $customer_id;
         $this->site_id = $site_id;
@@ -485,7 +485,7 @@ class CCAP_Api
      *
      * @param string  $block_id      Block ID returned from 
      *                               {@link create_block()}
-     * @param string  $display_style 'flyout' or 'lightbox'
+     * @param string  $display_style 'flyout', 'lightbox', or 'modal'
      * @param boolean $include_audio Include audio CAPTCHA (if enabled)
      * @param integer $height        Height of visual CAPTCHA in pictures
      * @param integer $width         Width of visual CAPTCHA in pictures
@@ -664,7 +664,7 @@ class CCAP_Api
      *
      * @deprecated Prefer {@link create_block()} / {@link create_visual()}
      *
-     * @param string  $display_style 'flyout' or 'lightbox'
+     * @param string  $display_style 'flyout', 'lightbox', or 'modal'
      * @param boolean $include_audio Include audio CAPTCHA (if enabled for
      *                               site)
      * @param integer $height        Height of visual CAPTCHA in pictures

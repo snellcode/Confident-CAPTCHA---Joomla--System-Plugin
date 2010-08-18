@@ -1,6 +1,6 @@
 PHP Library and Sample Code for Confident CAPTCHA
 =================================================
-version 20100621_PHP_1.1 - August 2nd, 2010
+version 20100813_PHP_1.2 - August 13th, 2010
 
 Thank you for downloading this library and sample code.
 
@@ -85,3 +85,6 @@ VERSION HISTORY
      * PHPDocumentor comments have been added to the the library, and generated
        documentation is included in the download package.
 
+ - 20100813_PHP_1.2 - August 13th, 2010
+     * Added support for visual CAPTCHA display_style 'modal' - Should work
+       better with complex layouts, like most frameworks

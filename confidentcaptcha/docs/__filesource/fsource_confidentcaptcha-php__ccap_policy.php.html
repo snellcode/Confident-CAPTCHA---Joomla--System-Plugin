@@ -89,7 +89,7 @@
 <li><div class="src-line"><a name="a76"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@copyright</span><span class="src-doc">&nbsp;Copyright&nbsp;(c)&nbsp;2010,&nbsp;Confident&nbsp;Technologies,&nbsp;Inc.</span></div></li>
 <li><div class="src-line"><a name="a77"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@license</span><span class="src-doc">&nbsp;&nbsp;&nbsp;http://www.gnu.org/licenses/old-licenses/gpl-2.0.html&nbsp;GNU&nbsp;GPL&nbsp;v2.0&nbsp;or&nbsp;later</span></div></li>
 <li><div class="src-line"><a name="a78"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@license</span><span class="src-doc">&nbsp;&nbsp;&nbsp;http://www.opensource.org/licenses/bsd-license.php&nbsp;Simplified&nbsp;BSD&nbsp;License</span></div></li>
-<li><div class="src-line"><a name="a79"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@version</span><span class="src-doc">&nbsp;&nbsp;&nbsp;20100621_PHP_1.1</span></div></li>
+<li><div class="src-line"><a name="a79"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@version</span><span class="src-doc">&nbsp;&nbsp;&nbsp;20100813_PHP_1.2</span></div></li>
 <li><div class="src-line"><a name="a80"></a><span class="src-doc">&nbsp;*/</span></div></li>
 <li><div class="src-line"><a name="a81"></a>&nbsp;</div></li>
 <li><div class="src-line"><a name="a82"></a>&nbsp;</div></li>
@@ -295,7 +295,7 @@
 <li><div class="src-line"><a name="a282"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
 <li><div class="src-line"><a name="a283"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@return&nbsp;</span><span class="src-doc-type">array&nbsp;</span><span class="src-doc">with&nbsp;keys&nbsp;'html'&nbsp;(HTML&nbsp;string)&nbsp;and&nbsp;'passed'&nbsp;(boolean)</span></div></li>
 <li><div class="src-line"><a name="a284"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
-<li><div class="src-line"><a name="a285"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><a href="../confidentcaptcha-php/CCAP_Policy.html#methodcheck_config">check_config</a><span class="src-sym">(</span><span class="src-var">$callback_url&nbsp;</span>=&nbsp;<span class="src-id">NULL</span><span class="src-sym">,&nbsp;</span><span class="src-var">$options&nbsp;</span>=&nbsp;<span class="src-id">NULL</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a285"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><a href="../confidentcaptcha-php/CCAP_Policy.html#methodcheck_config">check_config</a><span class="src-sym">(</span><span class="src-var">$callback_url&nbsp;</span>=&nbsp;<span class="src-id">NULL</span><span class="src-sym">,&nbsp;</span><span class="src-var">$options&nbsp;</span>=&nbsp;<span class="src-key">array</span><span class="src-sym">(</span><span class="src-sym">))</span></div></li>
 <li><div class="src-line"><a name="a286"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">{</span></div></li>
 <li><div class="src-line"><a name="a287"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//&nbsp;Local&nbsp;checks</span></div></li>
 <li><div class="src-line"><a name="a288"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$local_config&nbsp;</span>=&nbsp;<span class="src-key">array</span><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">&quot;Item&quot;</span><span class="src-sym">,&nbsp;</span><span class="src-str">&quot;Value&quot;</span><span class="src-sym">,</span></div></li>
@@ -577,7 +577,7 @@
 <li><div class="src-line"><a name="a564"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;NULL&nbsp;for&nbsp;delayed&nbsp;feedback</span></div></li>
 <li><div class="src-line"><a name="a565"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@param&nbsp;</span><span class="src-doc-type">array&nbsp;</span><span class="src-doc-var">$options&nbsp;</span><span class="src-doc">An&nbsp;array&nbsp;of&nbsp;CAPTCHA&nbsp;creation&nbsp;options,&nbsp;including:</span></div></li>
 <li><div class="src-line"><a name="a566"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;-&nbsp;code_color:&nbsp;&nbsp;&nbsp;&nbsp;Color&nbsp;of&nbsp;letter&nbsp;code&nbsp;on&nbsp;pictures</span></div></li>
-<li><div class="src-line"><a name="a567"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;-&nbsp;display_style:&nbsp;'flyout'&nbsp;or&nbsp;'lightbox'</span></div></li>
+<li><div class="src-line"><a name="a567"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;-&nbsp;display_style:&nbsp;'flyout',&nbsp;'lightbox',&nbsp;or&nbsp;'modal'</span></div></li>
 <li><div class="src-line"><a name="a568"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;-&nbsp;height:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Height&nbsp;of&nbsp;visual&nbsp;CAPTCHA&nbsp;in&nbsp;pictures</span></div></li>
 <li><div class="src-line"><a name="a569"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;-&nbsp;include_audio:&nbsp;Include&nbsp;audio&nbsp;CAPTCHA&nbsp;(if&nbsp;enabled)</span></div></li>
 <li><div class="src-line"><a name="a570"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;-&nbsp;length:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Number&nbsp;of&nbsp;pictures&nbsp;the&nbsp;user&nbsp;must&nbsp;pick</span></div></li>
@@ -990,7 +990,7 @@
 </ol></div>
 </div>
 	<p class="notes" id="credit">
-		Documentation generated on Mon, 02 Aug 2010 13:11:13 -0500 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Fri, 13 Aug 2010 15:13:04 -0500 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</body>
 </html>
