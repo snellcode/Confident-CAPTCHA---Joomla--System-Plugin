@@ -39,8 +39,10 @@ class plgSystemConfidentCAPTCHA extends JPlugin
 		require_once(dirname(__FILE__).'/confidentcaptcha/confidentcaptcha/ccap_persist.php');
 		require_once(dirname(__FILE__).'/confidentcaptcha/confidentcaptcha/ccap_prod_open_policy.php');
 		
-		$this->ccap_callback_url = $ccap_callback_url;
-		$this->ccap_options = $ccap_options;
+		$this->ccap_callback_url = null;
+		$this->ccap_options = array(
+			'display_style' => 'modal',
+		);
 		
 		$ccap_api = new CCAP_API(
 			$this->params->get('customer_id')
@@ -48,7 +50,7 @@ class plgSystemConfidentCAPTCHA extends JPlugin
 			,$this->params->get('api_username')
 			,$this->params->get('api_password')
 			,$this->params->get('captcha_server_url','http://captcha.confidenttechnologies.com/')
-			,'20100621_JOOMLA_1.0.5'
+			,'20100813_JOOMLA_1.0.6'
 		);
 		
 		$this->ccap_persist = new CCAP_PersistSession();
