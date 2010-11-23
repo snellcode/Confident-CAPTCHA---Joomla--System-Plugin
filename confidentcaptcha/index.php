@@ -39,6 +39,11 @@ The samples are:
   <li><a href="sample_before.php">sample_before.php</a> - A sample form before
     adding Confident CAPTCHA</li>
   <li><a href="sample_after.php">sample_after.php</a> - A sample form after adding Confident CAPTCHA</li>
+  <?php if (file_exists('sample_diff.html')) { ?>
+    <li><a href="sample_diff.html">sample_diff.html</a> - The differences between sample_before.php and sample_after.php</li>
+  <?php } else { ?>
+    <!-- sample_diff.html not created.  Run make_docs.sh -->
+  <?php } ?>
 </ul>
 <p>You can also read the <a href="docs/index.html">library reference</a>.</p>
 

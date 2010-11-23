@@ -255,7 +255,7 @@ class CCAP_Api
     public function __construct($customer_id, $site_id, $api_username,
         $api_password,
         $captcha_server_url = 'http://captcha.confidenttechnologies.com',
-        $library_version = '20100813_PHP_1.2', $use_shortcuts = FALSE)
+        $library_version = '20100910_PHP_1.2.2', $use_shortcuts = FALSE)
     {
         $this->customer_id = $customer_id;
         $this->site_id = $site_id;
@@ -293,9 +293,9 @@ class CCAP_Api
 
         $form = NULL;
         if (strtoupper($method) == 'GET') {
-            $url .= '?' . http_build_query($params);
+            $url .= '?' . http_build_query($params, '', '&');
         } elseif (strtoupper($method) == 'POST' and $params) {
-            $form = http_build_query($params);
+            $form = http_build_query($params, '', '&');
         }
         return Array('url'=>$url, 'form'=>$form);
     }
@@ -387,17 +387,24 @@ class CCAP_Api
             // IP directly from caller
             $ip=$_SERVER['REMOTE_ADDR'];
         } else {
-            $ip="";
+            $ip="(no ip)";
         }
 
         if (!empty($_SERVER['HTTP_USER_AGENT'])) {
             // User-Agent header
             $agent = $_SERVER['HTTP_USER_AGENT'];
         } else {
-            $agent = "";
+            $agent = "(no agent)";
+        }
+        
+        if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+            $lang = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
+        } else {
+            $lang = "(no language)";
         }
 
-        return Array('ip_addr' => $ip, 'user_agent' => $agent);
+        return Array('ip_addr' => $ip, 'user_agent' => $agent,
+            'language' => $lang);
     }
 
     /**

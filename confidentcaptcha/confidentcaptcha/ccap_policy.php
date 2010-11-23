@@ -572,7 +572,7 @@ $d_body";
      *
      * @return string HTML fragment to inject into page
      */
-    public function create_visual($callback_url = NULL, $options = NULL)
+    public function create_visual($callback_url = NULL, $options = array())
     {
         // Get a block_id if needed
         $block_failed = FALSE;

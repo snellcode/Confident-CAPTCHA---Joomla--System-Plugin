@@ -452,7 +452,6 @@ function new_settings_form()
     
     $f = <<<FORM
 <h2>CAPTCHA Settings</h2>
-<form>
 <ul>
  <li>CAPTCHA Policy:<ul>$policy_sublist</ul></li>
  <li>Failure Simulation:<ul>$fail_sublist</ul></li>
@@ -461,12 +460,18 @@ function new_settings_form()
  <li>Image Code Color:$colors</li>
 </ul>
 <h3>CAPTCHA Strength settings</h3>
+<form>
 <ul>
  <li>Height: <input type="text" name="ccap_height" value="$height" />$dh</li>
  <li>Width: <input type="text" name="ccap_width" value="$width" />$dw</li>
  <li>Length: <input type="text" name="ccap_length" value="$length" />$dl</li>
  <li>Current Strength: $strength_text</li>
 </ul>
+<input type="hidden" name="ccap_policy" value="$policy" />
+<input type="hidden" name="ccap_fail_sim" value="$fail_sim" />
+<input type="hidden" name="ccap_display_style" value="$display_style" />
+<input type="hidden" name="ccap_include_audio" value="$include_audio" />
+<input type="hidden" name="ccap_code_color" value="$code_color" />
 <input type="submit" value="Submit" />
 </form>
 FORM;

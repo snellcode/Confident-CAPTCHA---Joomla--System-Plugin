@@ -101,7 +101,7 @@ echo <<<HTML
   <h1>Contact Us</h1>
   <p>Please feel free to provide feedback about your experience. Be sure to include your name and contact information so we can respond.</p>
 
-<form method="post">
+<form method="post" action="">
 <div><label>Name: *</label></div>
 <div>
  <input type="text" maxlength="128" name="name" size="60" value="$name" />

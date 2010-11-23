@@ -3,22 +3,22 @@
   <html xmlns="http://www.w3.org/1999/xhtml">
 		<head>
 			<!-- template designed by Marco Von Ballmoos -->
-			<title>File Source for ccap_prod_closed_policy.php</title>
+			<title>File Source for ccap_persist_null.php</title>
 			<link rel="stylesheet" href="../media/stylesheet.css" />
 			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
 		</head>
 		<body>
-						<h1>Source for file ccap_prod_closed_policy.php</h1>
-<p>Documentation is available at <a href="../confidentcaptcha-php/_ccap_prod_closed_policy.php.html">ccap_prod_closed_policy.php</a></p>
+						<h1>Source for file ccap_persist_null.php</h1>
+<p>Documentation is available at <a href="../confidentcaptcha-php/_ccap_persist_null.php.html">ccap_persist_null.php</a></p>
 <div class="src-code">
 <div class="src-code"><ol><li><div class="src-line"><a name="a1"></a><span class="src-php">&lt;?php</span></div></li>
-<li><div class="src-line"><a name="a2"></a><span class="src-comm">/*</span></div></li>
-<li><div class="src-line"><a name="a3"></a><span class="src-comm">You&nbsp;must&nbsp;elect&nbsp;to&nbsp;use&nbsp;this&nbsp;software&nbsp;under&nbsp;one&nbsp;of:</span></div></li>
-<li><div class="src-line"><a name="a4"></a><span class="src-comm">&nbsp;*&nbsp;The&nbsp;GNU&nbsp;GPL&nbsp;v2.0&nbsp;License&nbsp;or&nbsp;later</span></div></li>
-<li><div class="src-line"><a name="a5"></a><span class="src-comm">&nbsp;*&nbsp;The&nbsp;Simplified&nbsp;BSD&nbsp;License</span></div></li>
-<li><div class="src-line"><a name="a6"></a>&nbsp;</div></li>
-<li><div class="src-line"><a name="a7"></a><span class="src-comm">If&nbsp;licensed&nbsp;under&nbsp;GNU&nbsp;GPL&nbsp;v2.0&nbsp;or&nbsp;later:</span></div></li>
-<li><div class="src-line"><a name="a8"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a2"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a3"></a><span class="src-comm">/*</span></div></li>
+<li><div class="src-line"><a name="a4"></a><span class="src-comm">You&nbsp;must&nbsp;elect&nbsp;to&nbsp;use&nbsp;this&nbsp;software&nbsp;under&nbsp;one&nbsp;of:</span></div></li>
+<li><div class="src-line"><a name="a5"></a><span class="src-comm">&nbsp;*&nbsp;The&nbsp;GNU&nbsp;GPL&nbsp;v2.0&nbsp;License&nbsp;or&nbsp;later</span></div></li>
+<li><div class="src-line"><a name="a6"></a><span class="src-comm">&nbsp;*&nbsp;The&nbsp;Simplified&nbsp;BSD&nbsp;License</span></div></li>
+<li><div class="src-line"><a name="a7"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a8"></a><span class="src-comm">If&nbsp;licensed&nbsp;under&nbsp;GNU&nbsp;GPL&nbsp;v2.0&nbsp;or&nbsp;later:</span></div></li>
 <li><div class="src-line"><a name="a9"></a><span class="src-comm">&nbsp;Copyright&nbsp;2010&nbsp;Confident&nbsp;Technologies,&nbsp;Inc.&nbsp;&nbsp;All&nbsp;rights&nbsp;reserved.</span></div></li>
 <li><div class="src-line"><a name="a10"></a>&nbsp;</div></li>
 <li><div class="src-line"><a name="a11"></a><span class="src-comm">&nbsp;This&nbsp;file&nbsp;is&nbsp;part&nbsp;of&nbsp;the&nbsp;Confident&nbsp;CAPTCHA&nbsp;Library&nbsp;for&nbsp;PHP.</span></div></li>
@@ -68,7 +68,7 @@
 <li><div class="src-line"><a name="a55"></a><span class="src-comm">*/</span></div></li>
 <li><div class="src-line"><a name="a56"></a>&nbsp;</div></li>
 <li><div class="src-line"><a name="a57"></a><span class="src-doc">/**</span></div></li>
-<li><div class="src-line"><a name="a58"></a><span class="src-doc">&nbsp;*&nbsp;Confident&nbsp;CAPTCHA&nbsp;library&nbsp;for&nbsp;PHP&nbsp;-&nbsp;Policy&nbsp;for&nbsp;Production&nbsp;-&nbsp;On&nbsp;server&nbsp;failure,&nbsp;page&nbsp;doesn't&nbsp;work</span></div></li>
+<li><div class="src-line"><a name="a58"></a><span class="src-doc">&nbsp;*&nbsp;Confident&nbsp;CAPTCHA&nbsp;library&nbsp;for&nbsp;PHP&nbsp;-&nbsp;Non-Persistence&nbsp;Implementation</span></div></li>
 <li><div class="src-line"><a name="a59"></a><span class="src-doc">&nbsp;*</span></div></li>
 <li><div class="src-line"><a name="a60"></a><span class="src-doc">&nbsp;*&nbsp;Confident&nbsp;CAPTCHA&nbsp;is&nbsp;free&nbsp;image-based&nbsp;challenge&nbsp;that&nbsp;relies&nbsp;on&nbsp;image</span></div></li>
 <li><div class="src-line"><a name="a61"></a><span class="src-doc">&nbsp;*&nbsp;categorization&nbsp;being&nbsp;easy&nbsp;for&nbsp;humans&nbsp;(easier&nbsp;than&nbsp;text-based&nbsp;CAPTCHAs)</span></div></li>
@@ -89,65 +89,76 @@
 <li><div class="src-line"><a name="a76"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@copyright</span><span class="src-doc">&nbsp;Copyright&nbsp;(c)&nbsp;2010,&nbsp;Confident&nbsp;Technologies,&nbsp;Inc.</span></div></li>
 <li><div class="src-line"><a name="a77"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@license</span><span class="src-doc">&nbsp;&nbsp;&nbsp;http://www.gnu.org/licenses/old-licenses/gpl-2.0.html&nbsp;GNU&nbsp;GPL&nbsp;v2.0&nbsp;or&nbsp;later</span></div></li>
 <li><div class="src-line"><a name="a78"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@license</span><span class="src-doc">&nbsp;&nbsp;&nbsp;http://www.opensource.org/licenses/bsd-license.php&nbsp;Simplified&nbsp;BSD&nbsp;License</span></div></li>
-<li><div class="src-line"><a name="a79"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@version</span><span class="src-doc">&nbsp;&nbsp;&nbsp;20100813_PHP_1.2</span></div></li>
-<li><div class="src-line"><a name="a80"></a><span class="src-doc">&nbsp;*/</span></div></li>
-<li><div class="src-line"><a name="a81"></a>&nbsp;</div></li>
-<li><div class="src-line"><a name="a82"></a><span class="src-doc">/**</span></div></li>
-<li><div class="src-line"><a name="a83"></a><span class="src-doc">&nbsp;*&nbsp;Include&nbsp;definition&nbsp;of&nbsp;</span><span class="src-doc-inlinetag">{@link&nbsp;CCAP_Policy}</span></div></li>
-<li><div class="src-line"><a name="a84"></a><span class="src-doc">&nbsp;*/</span></div></li>
-<li><div class="src-line"><a name="a85"></a><span class="src-inc">require_once</span><span class="src-sym">(</span><span class="src-str">&quot;ccap_policy.php&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
-<li><div class="src-line"><a name="a86"></a>&nbsp;</div></li>
-<li><div class="src-line"><a name="a87"></a><span class="src-doc">/**</span></div></li>
-<li><div class="src-line"><a name="a88"></a><span class="src-doc">&nbsp;*&nbsp;Confident&nbsp;CAPTCHA&nbsp;policy&nbsp;for&nbsp;production,&nbsp;failures&nbsp;leave&nbsp;page&nbsp;closed</span></div></li>
-<li><div class="src-line"><a name="a89"></a><span class="src-doc">&nbsp;*</span></div></li>
-<li><div class="src-line"><a name="a90"></a><span class="src-doc">&nbsp;*&nbsp;Occasionally,&nbsp;the&nbsp;call&nbsp;to&nbsp;create&nbsp;a&nbsp;Confident&nbsp;CAPTCHA&nbsp;will&nbsp;fail,&nbsp;due&nbsp;to</span></div></li>
-<li><div class="src-line"><a name="a91"></a><span class="src-doc">&nbsp;*&nbsp;upstream&nbsp;issues&nbsp;(failed&nbsp;API&nbsp;credentials,&nbsp;maintenance&nbsp;downtime,&nbsp;etc.).</span></div></li>
-<li><div class="src-line"><a name="a92"></a><span class="src-doc">&nbsp;*&nbsp;For&nbsp;a&nbsp;page&nbsp;like&nbsp;an&nbsp;account&nbsp;signup&nbsp;form,&nbsp;it&nbsp;is&nbsp;better&nbsp;that&nbsp;the&nbsp;page</span></div></li>
-<li><div class="src-line"><a name="a93"></a><span class="src-doc">&nbsp;*&nbsp;remains&nbsp;closed&nbsp;to&nbsp;all&nbsp;users&nbsp;than&nbsp;to&nbsp;let&nbsp;some&nbsp;automated&nbsp;accounts&nbsp;be</span></div></li>
-<li><div class="src-line"><a name="a94"></a><span class="src-doc">&nbsp;*&nbsp;created.</span></div></li>
+<li><div class="src-line"><a name="a79"></a><span class="src-doc">&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a80"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a81"></a><span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a82"></a><span class="src-doc">&nbsp;*&nbsp;Include&nbsp;definition&nbsp;of&nbsp;</span><span class="src-doc-inlinetag">{@link&nbsp;CCAP_Persistence}</span></div></li>
+<li><div class="src-line"><a name="a83"></a><span class="src-doc">&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a84"></a><span class="src-inc">require_once</span><span class="src-sym">(</span><span class="src-str">&quot;ccap_persist_interface.php&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a85"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a86"></a><span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a87"></a><span class="src-doc">&nbsp;*&nbsp;&quot;Do&nbsp;Nothing&quot;&nbsp;as&nbsp;persistance&nbsp;strategy.</span></div></li>
+<li><div class="src-line"><a name="a88"></a><span class="src-doc">&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a89"></a><span class="src-doc">&nbsp;*&nbsp;Used&nbsp;for&nbsp;stateless&nbsp;Confident&nbsp;CAPTCHA.&nbsp;&nbsp;This&nbsp;restricts&nbsp;you&nbsp;to&nbsp;delayed</span></div></li>
+<li><div class="src-line"><a name="a90"></a><span class="src-doc">&nbsp;*&nbsp;CAPTCHA&nbsp;validation,&nbsp;and&nbsp;means&nbsp;forms&nbsp;will&nbsp;fail&nbsp;when&nbsp;the&nbsp;CAPTCHA&nbsp;server</span></div></li>
+<li><div class="src-line"><a name="a91"></a><span class="src-doc">&nbsp;*&nbsp;fails.&nbsp;&nbsp;This&nbsp;class&nbsp;is&nbsp;not&nbsp;recommended&nbsp;for&nbsp;general&nbsp;use,&nbsp;but&nbsp;it&nbsp;is&nbsp;a&nbsp;good</span></div></li>
+<li><div class="src-line"><a name="a92"></a><span class="src-doc">&nbsp;*&nbsp;for&nbsp;a&nbsp;quick&nbsp;API&nbsp;credentials&nbsp;check,&nbsp;or&nbsp;as&nbsp;a&nbsp;starting&nbsp;place&nbsp;for&nbsp;your&nbsp;own</span></div></li>
+<li><div class="src-line"><a name="a93"></a><span class="src-doc">&nbsp;*&nbsp;persistance&nbsp;implementation,&nbsp;or&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;handle&nbsp;persistance&nbsp;yourself</span></div></li>
+<li><div class="src-line"><a name="a94"></a><span class="src-doc">&nbsp;*&nbsp;(for&nbsp;example,&nbsp;storing&nbsp;the&nbsp;CCAP_Policy&nbsp;instance&nbsp;in&nbsp;the&nbsp;session).</span></div></li>
 <li><div class="src-line"><a name="a95"></a><span class="src-doc">&nbsp;*</span></div></li>
-<li><div class="src-line"><a name="a96"></a><span class="src-doc">&nbsp;*&nbsp;When&nbsp;there&nbsp;is&nbsp;an&nbsp;upstream&nbsp;issue,&nbsp;this&nbsp;policy&nbsp;will&nbsp;display&nbsp;a&nbsp;message</span></div></li>
-<li><div class="src-line"><a name="a97"></a><span class="src-doc">&nbsp;*&nbsp;that&nbsp;CAPTCHA&nbsp;creation&nbsp;failed,&nbsp;and&nbsp;to&nbsp;try&nbsp;again&nbsp;later.</span></div></li>
-<li><div class="src-line"><a name="a98"></a><span class="src-doc">&nbsp;*</span></div></li>
-<li><div class="src-line"><a name="a99"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@package</span><span class="src-doc">&nbsp;confidentcaptcha-php</span></div></li>
-<li><div class="src-line"><a name="a100"></a><span class="src-doc">&nbsp;*/</span></div></li>
-<li><div class="src-line"><a name="a101"></a><span class="src-key">class&nbsp;</span><a href="../confidentcaptcha-php/CCAP_ProductionFailClosed.html">CCAP_ProductionFailClosed</a>&nbsp;<span class="src-key">extends&nbsp;</span><a href="../confidentcaptcha-php/CCAP_Policy.html">CCAP_Policy</a></div></li>
-<li><div class="src-line"><a name="a102"></a><span class="src-sym">{</span></div></li>
-<li><div class="src-line"><a name="a103"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
-<li><div class="src-line"><a name="a104"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;HTML&nbsp;message&nbsp;on&nbsp;failure</span></div></li>
-<li><div class="src-line"><a name="a105"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@var&nbsp;</span><span class="src-doc-type">string&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a96"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@package</span><span class="src-doc">&nbsp;confidentcaptcha-php</span></div></li>
+<li><div class="src-line"><a name="a97"></a><span class="src-doc">&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a98"></a><span class="src-key">class&nbsp;</span><a href="../confidentcaptcha-php/CCAP_PersistNull.html">CCAP_PersistNull</a>&nbsp;<span class="src-key">extends&nbsp;</span><a href="../confidentcaptcha-php/CCAP_Persistence.html">CCAP_Persistence</a></div></li>
+<li><div class="src-line"><a name="a99"></a><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a100"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a101"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Initialize&nbsp;the&nbsp;policy&nbsp;state&nbsp;from&nbsp;persistance&nbsp;store</span></div></li>
+<li><div class="src-line"><a name="a102"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a103"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;The&nbsp;null&nbsp;policy&nbsp;doesn't&nbsp;load&nbsp;anything.</span></div></li>
+<li><div class="src-line"><a name="a104"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a105"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@var&nbsp;</span><span class="src-doc-type">CCAP_Policy&nbsp;</span><span class="src-doc-var">$policy&nbsp;</span><span class="src-doc">The&nbsp;policy&nbsp;instance&nbsp;to&nbsp;initialize</span></div></li>
 <li><div class="src-line"><a name="a106"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
-<li><div class="src-line"><a name="a107"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">const&nbsp;</span><a href="../confidentcaptcha-php/CCAP_ProductionFailClosed.html#constFAIL_MESSAGE">FAIL_MESSAGE</a>&nbsp;=&nbsp;</div></li>
-<li><div class="src-line"><a name="a108"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'&lt;p&gt;CAPTCHA&nbsp;creation&nbsp;failed.&nbsp;&nbsp;Please&nbsp;try&nbsp;again&nbsp;later.&lt;/p&gt;'</span><span class="src-sym">;</span></div></li>
-<li><div class="src-line"><a name="a109"></a>&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a107"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><a href="../confidentcaptcha-php/CCAP_PersistNull.html#methodload">load</a><span class="src-sym">(</span><span class="src-sym">&amp;</span><span class="src-var">$policy</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a108"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a109"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
 <li><div class="src-line"><a name="a110"></a>&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
 <li><div class="src-line"><a name="a111"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
-<li><div class="src-line"><a name="a112"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;On&nbsp;creation&nbsp;failure,&nbsp;tell&nbsp;the&nbsp;user&nbsp;that&nbsp;the&nbsp;form&nbsp;is&nbsp;broken</span></div></li>
+<li><div class="src-line"><a name="a112"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Get&nbsp;stored&nbsp;policy&nbsp;name</span></div></li>
 <li><div class="src-line"><a name="a113"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
-<li><div class="src-line"><a name="a114"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;It&nbsp;is&nbsp;better&nbsp;for&nbsp;the&nbsp;site&nbsp;owner&nbsp;to&nbsp;examine&nbsp;$visual_creation_succeeded,</span></div></li>
-<li><div class="src-line"><a name="a115"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;and&nbsp;display&nbsp;an&nbsp;error&nbsp;message&nbsp;instead&nbsp;of&nbsp;the&nbsp;form.&nbsp;&nbsp;This&nbsp;is&nbsp;a&nbsp;backup,</span></div></li>
-<li><div class="src-line"><a name="a116"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;in&nbsp;case&nbsp;the&nbsp;site&nbsp;owner&nbsp;is&nbsp;quickly&nbsp;switching&nbsp;and&nbsp;doesn't&nbsp;have&nbsp;time&nbsp;to</span></div></li>
-<li><div class="src-line"><a name="a117"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;change&nbsp;the&nbsp;page&nbsp;logic&nbsp;cleanly.</span></div></li>
-<li><div class="src-line"><a name="a118"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
-<li><div class="src-line"><a name="a119"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@param&nbsp;</span><span class="src-doc-type">CCAP_ApiResponse&nbsp;</span><span class="src-doc-var">$response&nbsp;</span><span class="src-doc">The&nbsp;response&nbsp;from&nbsp;</span><span class="src-doc-inlinetag">{@link&nbsp;CCAP_Api}</span></div></li>
-<li><div class="src-line"><a name="a120"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@return&nbsp;</span><span class="src-doc-type">string&nbsp;</span><span class="src-doc">HTML&nbsp;to&nbsp;inject&nbsp;into&nbsp;the&nbsp;page</span></div></li>
-<li><div class="src-line"><a name="a121"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
-<li><div class="src-line"><a name="a122"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">protected&nbsp;</span><span class="src-key">function&nbsp;</span><a href="../confidentcaptcha-php/CCAP_ProductionFailClosed.html#methodrespond_create_visual">respond_create_visual</a><span class="src-sym">(</span><span class="src-var">$response</span><span class="src-sym">)</span></div></li>
-<li><div class="src-line"><a name="a123"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">{</span></div></li>
-<li><div class="src-line"><a name="a124"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">if&nbsp;</span><span class="src-sym">(</span><span class="src-var">$response</span><span class="src-sym">-&gt;</span><span class="src-id">status&nbsp;</span>==&nbsp;<span class="src-num">200</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
-<li><div class="src-line"><a name="a125"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">return&nbsp;</span><span class="src-var">$response</span><span class="src-sym">-&gt;</span><span class="src-id">body</span><span class="src-sym">;</span></div></li>
-<li><div class="src-line"><a name="a126"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}&nbsp;</span><span class="src-key">elseif&nbsp;</span><span class="src-sym">(</span><span class="src-sym">!</span><span class="src-var">$this</span><span class="src-sym">-&gt;</span><a href="../confidentcaptcha-php/CCAP_Policy.html#var$visual_creation_succeeded">visual_creation_succeeded</a><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
-<li><div class="src-line"><a name="a127"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">return&nbsp;</span><span class="src-id">self</span><span class="src-sym">::</span><span class="src-id">FAIL_MESSAGE</span><span class="src-sym">;</span></div></li>
-<li><div class="src-line"><a name="a128"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}&nbsp;</span><span class="src-key">else&nbsp;</span><span class="src-sym">{</span></div></li>
-<li><div class="src-line"><a name="a129"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">return&nbsp;</span><span class="src-str">&quot;&quot;</span><span class="src-sym">;</span></div></li>
-<li><div class="src-line"><a name="a130"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
-<li><div class="src-line"><a name="a131"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
-<li><div class="src-line"><a name="a132"></a>&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
-<li><div class="src-line"><a name="a133"></a><span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a114"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;The&nbsp;null&nbsp;policy&nbsp;doesn't&nbsp;store&nbsp;the&nbsp;policy&nbsp;name,&nbsp;so&nbsp;return&nbsp;is&nbsp;NULL.</span></div></li>
+<li><div class="src-line"><a name="a115"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a116"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@return&nbsp;</span><span class="src-doc-type">string&nbsp;</span><span class="src-doc">The&nbsp;policy&nbsp;class&nbsp;name</span></div></li>
+<li><div class="src-line"><a name="a117"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a118"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><a href="../confidentcaptcha-php/CCAP_PersistNull.html#methodpolicy_name">policy_name</a><span class="src-sym">(</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a119"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a120"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">return&nbsp;</span><span class="src-id">NULL</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a121"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a122"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a123"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a124"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Save&nbsp;the&nbsp;policy&nbsp;state&nbsp;to&nbsp;persistance&nbsp;store</span></div></li>
+<li><div class="src-line"><a name="a125"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a126"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;The&nbsp;null&nbsp;policy&nbsp;doesn't&nbsp;save&nbsp;anything.</span></div></li>
+<li><div class="src-line"><a name="a127"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a128"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@var&nbsp;</span><span class="src-doc-type">CCAP_Policy&nbsp;</span><span class="src-doc-var">$policy&nbsp;</span><span class="src-doc">The&nbsp;policy&nbsp;instance&nbsp;to&nbsp;save</span></div></li>
+<li><div class="src-line"><a name="a129"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a130"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><a href="../confidentcaptcha-php/CCAP_PersistNull.html#methodsave">save</a><span class="src-sym">(</span><span class="src-sym">&amp;</span><span class="src-var">$policy</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a131"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a132"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a133"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a134"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a135"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Clear&nbsp;the&nbsp;policy&nbsp;state&nbsp;in&nbsp;persistance&nbsp;store</span></div></li>
+<li><div class="src-line"><a name="a136"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a137"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;The&nbsp;null&nbsp;policy&nbsp;is&nbsp;already&nbsp;clear.</span></div></li>
+<li><div class="src-line"><a name="a138"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a139"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@var&nbsp;</span><span class="src-doc-type">CCAP_Policy&nbsp;</span><span class="src-doc-var">$policy&nbsp;</span><span class="src-doc">The&nbsp;policy&nbsp;instance&nbsp;to&nbsp;clear</span></div></li>
+<li><div class="src-line"><a name="a140"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a141"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><a href="../confidentcaptcha-php/CCAP_PersistNull.html#methodreset">reset</a><span class="src-sym">(</span><span class="src-sym">&amp;</span><span class="src-var">$policy</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a142"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a143"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a144"></a><span class="src-sym">}</span></div></li>
 </ol></div>
 </div>
 	<p class="notes" id="credit">
-		Documentation generated on Wed, 10 Nov 2010 17:12:20 -0600 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Mon, 20 Sep 2010 14:19:19 -0500 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</body>
 </html>

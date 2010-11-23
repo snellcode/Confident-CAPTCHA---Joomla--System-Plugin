@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+  <title></title>
+  <meta http-equiv="content-type" content="text/html; charset=latin1">
+  <style type="text/css">
+td.linenos { background-color: #f0f0f0; padding-right: 10px; }
+span.lineno { background-color: #f0f0f0; padding: 0 5px 0 5px; }
+pre { line-height: 125%; }
+body .hll { background-color: #ffffcc }
+body  { background: #f8f8f8; }
+body .c { color: #408080; font-style: italic } /* Comment */
+body .err { border: 1px solid #FF0000 } /* Error */
+body .k { color: #008000; font-weight: bold } /* Keyword */
+body .o { color: #666666 } /* Operator */
+body .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+body .cp { color: #BC7A00 } /* Comment.Preproc */
+body .c1 { color: #408080; font-style: italic } /* Comment.Single */
+body .cs { color: #408080; font-style: italic } /* Comment.Special */
+body .gd { color: #A00000 } /* Generic.Deleted */
+body .ge { font-style: italic } /* Generic.Emph */
+body .gr { color: #FF0000 } /* Generic.Error */
+body .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+body .gi { color: #00A000 } /* Generic.Inserted */
+body .go { color: #808080 } /* Generic.Output */
+body .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+body .gs { font-weight: bold } /* Generic.Strong */
+body .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+body .gt { color: #0040D0 } /* Generic.Traceback */
+body .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+body .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+body .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+body .kp { color: #008000 } /* Keyword.Pseudo */
+body .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+body .kt { color: #B00040 } /* Keyword.Type */
+body .m { color: #666666 } /* Literal.Number */
+body .s { color: #BA2121 } /* Literal.String */
+body .na { color: #7D9029 } /* Name.Attribute */
+body .nb { color: #008000 } /* Name.Builtin */
+body .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+body .no { color: #880000 } /* Name.Constant */
+body .nd { color: #AA22FF } /* Name.Decorator */
+body .ni { color: #999999; font-weight: bold } /* Name.Entity */
+body .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+body .nf { color: #0000FF } /* Name.Function */
+body .nl { color: #A0A000 } /* Name.Label */
+body .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+body .nt { color: #008000; font-weight: bold } /* Name.Tag */
+body .nv { color: #19177C } /* Name.Variable */
+body .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+body .w { color: #bbbbbb } /* Text.Whitespace */
+body .mf { color: #666666 } /* Literal.Number.Float */
+body .mh { color: #666666 } /* Literal.Number.Hex */
+body .mi { color: #666666 } /* Literal.Number.Integer */
+body .mo { color: #666666 } /* Literal.Number.Oct */
+body .sb { color: #BA2121 } /* Literal.String.Backtick */
+body .sc { color: #BA2121 } /* Literal.String.Char */
+body .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+body .s2 { color: #BA2121 } /* Literal.String.Double */
+body .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+body .sh { color: #BA2121 } /* Literal.String.Heredoc */
+body .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+body .sx { color: #008000 } /* Literal.String.Other */
+body .sr { color: #BB6688 } /* Literal.String.Regex */
+body .s1 { color: #BA2121 } /* Literal.String.Single */
+body .ss { color: #19177C } /* Literal.String.Symbol */
+body .bp { color: #008000 } /* Name.Builtin.Pseudo */
+body .vc { color: #19177C } /* Name.Variable.Class */
+body .vg { color: #19177C } /* Name.Variable.Global */
+body .vi { color: #19177C } /* Name.Variable.Instance */
+body .il { color: #666666 } /* Literal.Number.Integer.Long */
+
+  </style>
+</head>
+<body>
+<h2></h2>
+
+<div class="highlight"><pre><span class="gd">--- sample_before.php	2010-10-27 08:46:04.000000000 -0500</span>
+<span class="gi">+++ sample_after.php	2010-10-27 08:46:16.000000000 -0500</span>
+<span class="gu">@@ -1,103 +1,135 @@</span>
+ &lt;?php
+ /* This is a sample form demonstrating how to integrate Confident CAPTCHA into
+  * you own forms.
+  *
+<span class="gd">- * This form does not have Confident CAPTCHA.  See sample_after.php for the</span>
+<span class="gd">- * changes needed to add Confident CAPTCHA.</span>
+<span class="gi">+ * This form has Confident CAPTCHA.  See sample_before.php for what the</span>
+<span class="gi">+ * form looked like before adding Confident CAPTCHA.</span>
+  */
+ 
+<span class="gi">+/* Requires for Confident CAPTCHA */</span>
+<span class="gi">+require_once(&#39;config.php&#39;);</span>
+<span class="gi">+require_once(&#39;confidentcaptcha/ccap_api.php&#39;);</span>
+<span class="gi">+require_once(&#39;confidentcaptcha/ccap_persist.php&#39;);</span>
+<span class="gi">+require_once(&#39;confidentcaptcha/ccap_prod_open_policy.php&#39;);</span>
+<span class="gi">+</span>
+<span class="gi">+$ccap_api = new CCAP_API(</span>
+<span class="gi">+    $ccap_api_settings[&#39;customer_id&#39;],</span>
+<span class="gi">+    $ccap_api_settings[&#39;site_id&#39;],</span>
+<span class="gi">+    $ccap_api_settings[&#39;api_username&#39;],</span>
+<span class="gi">+    $ccap_api_settings[&#39;api_password&#39;],</span>
+<span class="gi">+    $ccap_server_url);</span>
+<span class="gi">+$ccap_persist = new CCAP_PersistSession();</span>
+<span class="gi">+// Using Fail Open policy - It&#39;s OK if sales gets a little spam</span>
+<span class="gi">+$ccap_policy = new CCAP_ProductionFailOpen($ccap_api, $ccap_persist);</span>
+<span class="gi">+</span>
+<span class="gi">+$ccap_policy-&gt;start_captcha_page();</span>
+<span class="gi">+</span>
+ // Default values are last time&#39;s values
+ $name = isset($_REQUEST[&#39;name&#39;]) ? $_REQUEST[&#39;name&#39;] : &#39;&#39;;
+ $phone = isset($_REQUEST[&#39;phone&#39;]) ? $_REQUEST[&#39;phone&#39;] : &#39;&#39;;
+ $email = isset($_REQUEST[&#39;email&#39;]) ? $_REQUEST[&#39;email&#39;] : &#39;&#39;;
+ $comments = isset($_REQUEST[&#39;comments&#39;]) ? $_REQUEST[&#39;comments&#39;] : &#39;&#39;;
+ $alert=&#39;&#39;;
+ 
+ // If this a form submission...
+ if ($_SERVER[&#39;REQUEST_METHOD&#39;] == &#39;POST&#39;)
+ {
+     // Check required elements
+     $missing = array();
+     if (empty($name)) $missing[] = &#39;Name&#39;;
+     if (empty($email)) $missing[] = &#39;Email&#39;;
+     if (empty($comments)) $missing[] = &#39;Comments&#39;;
+ 
+     if (!empty($missing)) {
+         $message = &quot;Please fill out the following required fields: &quot;;
+         $message .= implode(&#39;, &#39;, $missing);
+         $message .= &#39;.&#39;;
+     } elseif (!strpos($email, &#39;@&#39;, 1)) {
+         // TODO: Bob - bob@bob and bob@@bob.com aren&#39;t valid, either
+         $message = &quot;Please enter a valid email address.&quot;;
+<span class="gi">+    } elseif (!$ccap_policy-&gt;check_form($_REQUEST)) {</span>
+<span class="gi">+        $message = &quot;CAPTCHA failed - please try again.&quot;;</span>
+     } else {
+         // TODO: Bob - add code to email this message to sales
+         $message = &quot;Thank you for your comments, $name.\n&quot;;
+         $message .= &quot;Our sales team will get back with you shortly.&quot;;
+         // Clear form
+         $name = &quot;&quot;;
+         $phone = &quot;&quot;;
+         $email = &quot;&quot;;
+         $comments = &quot;&quot;;
+     }
+     
+     $alert = &quot;&quot;;
+     if ($message) {
+         // TODO: Bob - is there something we should be doing to sanitize?
+         $jmessage = preg_replace(&quot;/\r?\n/&quot;, &quot;\\n&quot;, addslashes($message));
+         $alert = &quot;&lt;script type=\&quot;text/javascript\&quot;&gt;
+             alert(\&quot;$jmessage\&quot;);
+         &lt;/script&gt;&quot;;
+     }
+ }
+ 
+<span class="gi">+// Start a new Confident CAPTCHA on every page load</span>
+<span class="gi">+$ccap_policy-&gt;reset();</span>
+<span class="gi">+$ccap_captcha = $ccap_policy-&gt;create_visual($ccap_callback_url, $ccap_options);</span>
+<span class="gi">+</span>
+ // Show the form on GET or POST   
+ echo &lt;&lt;&lt;HTML
+ &lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot; 
+   &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;
+ &lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xml:lang=&quot;en&quot; lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;
+ &lt;head&gt;
+ &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
+   &lt;title&gt;Contact Us&lt;/title&gt;
+   &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
+   &lt;style type=&quot;text/css&quot;&gt;
+   p {
+       font-family: sans-serif;
+       font-size: 13px;
+   }
+   label {
+       font-family: sans-serif;
+       font-size: 16px;
+   }
+   &lt;/style&gt;
+<span class="gi">+  &lt;!-- Confident CAPTCHA requires jquery --&gt;</span>
+<span class="gi">+  &lt;script type=&#39;text/javascript&#39;</span>
+<span class="gi">+    src=&#39;http://code.jquery.com/jquery-1.4.2.min.js&#39;&gt;&lt;/script&gt;</span>
+ &lt;/head&gt;
+ &lt;body&gt;
+   &lt;h1&gt;Contact Us&lt;/h1&gt;
+   &lt;p&gt;Please feel free to provide feedback about your experience. Be sure to include your name and contact information so we can respond.&lt;/p&gt;
+ 
+ &lt;form method=&quot;post&quot; action=&quot;&quot;&gt;
+ &lt;div&gt;&lt;label&gt;Name: *&lt;/label&gt;&lt;/div&gt;
+ &lt;div&gt;
+  &lt;input type=&quot;text&quot; maxlength=&quot;128&quot; name=&quot;name&quot; size=&quot;60&quot; value=&quot;$name&quot; /&gt;
+ &lt;/div&gt;
+ &lt;div&gt;&lt;label&gt;Phone: &lt;/label&gt;&lt;/div&gt;
+ &lt;div&gt;
+  &lt;input type=&quot;text&quot; maxlength=&quot;128&quot; name=&quot;phone&quot; size=&quot;60&quot; value=&quot;$phone&quot; /&gt;
+ &lt;/div&gt;
+ &lt;div&gt;&lt;label&gt;Email: *&lt;/label&gt;&lt;/div&gt;
+ &lt;div&gt;
+  &lt;input type=&quot;text&quot; maxlength=&quot;128&quot; name=&quot;email&quot; size=&quot;60&quot; value=&quot;$email&quot; /&gt;
+ &lt;/div&gt;
+ &lt;div&gt;&lt;label&gt;Comments: *&lt;/label&gt;&lt;/div&gt;
+ &lt;div&gt;
+  &lt;textarea cols=&quot;60&quot; rows=&quot;5&quot; name=&quot;comments&quot;&gt;$comments&lt;/textarea&gt;
+ &lt;/div&gt;
+ &lt;div&gt;
+<span class="gi">+&lt;!-- Confident CAPTCHA start --&gt;</span>
+<span class="gi">+$ccap_captcha</span>
+<span class="gi">+&lt;!-- Confident CAPTCHA end --&gt;</span>
+<span class="gi">+&lt;/div&gt;</span>
+<span class="gi">+&lt;div&gt;</span>
+   &lt;input type=&quot;submit&quot; name=&quot;op&quot; value=&quot;Submit&quot; /&gt;
+ &lt;/div&gt;
+ &lt;/form&gt;
+ $alert
+ &lt;p&gt;&lt;a href=&quot;index.php&quot;&gt;Return to the index&lt;/a&gt;&lt;/p&gt;
+ &lt;/body&gt;
+ &lt;/html&gt;
+ 
+ HTML;
+</pre></div>
+</body>
+</html>
