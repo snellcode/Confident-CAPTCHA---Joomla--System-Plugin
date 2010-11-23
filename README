@@ -1,0 +1,6 @@
+Joomla Plugin 1.0.7
+
+Based on the Confident CAPTCHA PHP library - see confidentcaptcha/README.markdown for notes.
+
+Release History:
+ * 1.0.7 - November 23, 2010 - Updated to PHP 1.2.2 library
