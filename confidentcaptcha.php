@@ -1,6 +1,6 @@
 <?php
 /**
- * @version		1.0.4
+ * @version		1.0.7
  * @package		Confident CAPTCHA
  * @author 		Confident Technologies
  * @author mail	info@confidenttechnologies.com
@@ -50,7 +50,7 @@ class plgSystemConfidentCAPTCHA extends JPlugin
 			,$this->params->get('api_username')
 			,$this->params->get('api_password')
 			,$this->params->get('captcha_server_url','http://captcha.confidenttechnologies.com/')
-			,'20100813_JOOMLA_1.0.6'
+			,'20100910_JOOMLA_1.0.7'
 		);
 		
 		$this->ccap_persist = new CCAP_PersistSession();
